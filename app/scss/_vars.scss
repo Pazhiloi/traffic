@@ -1,0 +1,47 @@
+$default: #000;
+$accent: #F9E576;
+$bg: #f6f6f6;
+%montserrat-700{
+  font-family: 'Montserrat-Bold', sant-serif;  
+  font-weight: 700;
+}
+%montserrat-600{
+  font-family: 'Montserrat-SemiBold', sans-serif;
+  font-weight: 600;
+}
+%montserrat-500{
+  font-family: 'Montserrat-Medium' , sans-serif;
+  font-weight: 500;
+}
+%main-gradient{
+  background:  linear-gradient(180deg, #FDF783 0%, #F9E576 100%);
+}
+%main-grad{
+  background: linear-gradient(180deg, #FDF783 0%, #F9E576 57.12%);
+}
+%accent{
+  color: linear-gradient(272.67deg, #F8DF5A 0%, #F9E576 100%);
+}
+%df{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+%btn{
+  @extend %montserrat-600;
+  font-size: 15px;
+  color: #fff;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  max-width: 242px;
+  width: 100%;
+  height: 52px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+
+

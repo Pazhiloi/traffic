@@ -1,0 +1,164 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'libs';
+@import 'global';
+
+.header{
+  position: relative;
+  @extend %main-grad;
+  padding: 50px 0 45px;
+ &__inner{
+   @extend %df;
+ }
+
+ &__link{
+   @extend %btn;
+   background-color: transparent;
+   color: #000;
+   border: 2px solid #000;
+ }
+}
+.menu{
+  &__list{
+    display: flex;
+    align-items: center;
+  }
+  &__item:not(:first-child){
+    margin-left: 70px;
+  }
+  &__btn{
+    border: none;
+    outline: 0;
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+  }
+  &__link{
+    font-size: 16px;
+  }
+}
+.logo{
+  width: 122px;
+  height: 30px;
+}
+.vacancies{
+  position: relative;
+  &__title{
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      border: 10px solid transparent; border-bottom: 10px solid #fff;
+      bottom: -37px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+    }
+  }
+  &__title.active{
+    &::after{
+      display: block;
+    }
+  }
+  &__img{
+    display: inline;
+    align-self: start;
+    padding-bottom: 2px;
+  }
+ 
+  &__wrapper{
+    position: absolute;
+    bottom: -200px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 200px;
+    min-height: 0;
+    max-height: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition-duration: 0.5s;
+    &::before,
+    &::after{
+      content: '';
+      position: absolute;
+      @extend %main-grad;
+      clip-path: circle(50%);
+      width: 45px;
+      height: 45px;
+    }
+    &::before{
+      top: -20px;
+      left: -20px;
+    }
+    &::after{
+      bottom: -20px;
+      right: -20px;
+    }
+  }
+  &__wrapper.active{
+    min-height: 164px;
+  }
+  &__inner{
+    padding: 35px 0;
+  }
+  &__list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__link{
+    transition: color 0.5s ease;
+    &:hover{
+      color: $accent;
+    }
+  }
+  &__item:not(:last-child){
+    margin-bottom: 15px;
+  }
+}
+.top{
+  padding-top: 45px;
+  @extend %main-grad;
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+
+
+.footer{
+  padding: 80px 0 80px;
+  background-color: #fff;
+  &__inner{
+   @extend %df;
+  }
+  &__tels{
+    display: flex;
+    align-items: center;
+  }
+  &__tel{
+    @extend %montserrat-700;
+  }
+  &__tel:not(:first-child){
+    margin-left: 100px;
+  }
+  &__social{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: repeat(4, 1fr);
+    grid-column-gap: 100px
+  }
+  &__image{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+  }
+}
+
+
+@import 'media';
