@@ -22,6 +22,10 @@ $bg: #f6f6f6;
 %accent{
   color: linear-gradient(272.67deg, #F8DF5A 0%, #F9E576 100%);
 }
+%dfc{
+  display: flex;
+  align-items: center;
+}
 %df{
   display: flex;
   justify-content: space-between;
@@ -41,6 +45,22 @@ $bg: #f6f6f6;
   height: 52px;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+%input{
+  border: 0;
+  outline: 0;
+  width: 270px;
+  height: 47px;
+  padding: 15px 5px 15px 20px;
+  font-size: 14px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  &::placeholder{
+    color: #000;
+  }
 }
 
 

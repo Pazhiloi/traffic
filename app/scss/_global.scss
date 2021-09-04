@@ -30,9 +30,35 @@ img{
 a{
   color: $default;
 }
-.title{
+.title,
+.mini-title{
   @extend %montserrat-700;
+  text-transform: uppercase;
+  line-height: 1.5;
+  position: relative;
+  &::after{
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 125px;
+    height: 4px;
+    left: 0;
+    bottom: 0;
+  }
+}
+.title{
   font-size: 48px;
-  line-height: 42px;
+  padding-bottom: 40px;
+  &::after{
+    background-image: url('../images/content/line.png');
+  }
+}
+.mini-title{
+  font-size: 28px;
+  padding-bottom: 20px;
+  &::after{
+    background-image: url('../images/content/line-mini.png');
+  }
 }
 
