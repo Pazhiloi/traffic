@@ -118,6 +118,7 @@
   }
 }
 .top{
+  overflow: hidden;
   padding: 50px 0 25px;
   @extend %main-grad;
   &__inner{
@@ -158,7 +159,8 @@
     @extend %btn;
     margin: 0 auto;
   }
-  &__image{
+  &__image,
+  &__image-faq{
     position: absolute;
   }
   &__image:first-child{
@@ -168,6 +170,14 @@
   &__image:last-child{
     bottom: -80px;
     right: 0;
+  }
+  &__image-faq:first-child{
+    left: 0;
+    bottom: 0;
+  }
+  &__image-faq:last-child{
+    right: -140px;
+    bottom: -25px;
   }
 }
 .about{
@@ -334,14 +344,15 @@
   &__item:not(:last-child){
     margin-bottom: 50px;
   }
-  &__preview{
+  &__preview,
+  &__wrapper{
     max-width: 1200px;
     width: 100%;
     height: 155px;
     @extend %dfc;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
     border-radius: 40px;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
     transition: all 0.5s ease;
     cursor: pointer;
     &:hover{
@@ -354,13 +365,57 @@
   &__preview-title{
     margin-left: 50px;
   }
-  &__preview-title{
+  &__preview-title,
+  &__link{
     @extend %montserrat-600;
     font-size: 24px;
   }
   &__image{
     width: 75px;
     height: 75px;
+  }
+  &__wrapper{
+    display: block;
+    .courses__list-wrapper{
+      display: none;
+    }
+  }
+  &__wrapper.active{
+    min-height: 436px;
+    @extend %main-gradient;
+    box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: auto;
+    .courses__list-wrapper{
+      display: flex;
+    }
+  }
+  &__wrapper-image{
+    @extend %dfc;
+    padding-top: 40px;
+  }
+  &__list-wrapper{
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__list-item{
+    text-align: left;
+    margin-bottom: 35px;
+  }
+  &__link{
+   position: relative;
+   &::before{
+     content: '';
+     position: absolute;
+     left: -20px;
+     top: 10px;
+     width: 9px;
+     height: 9px;
+     border-radius: 20px;
+     background-color: #000;
+   }
   }
 }
 .cards{
@@ -370,10 +425,15 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -ms-grid-columns: repeat(2, 1fr);
-  grid-column-gap: 50px
+  grid-column-gap: 50px;
+  display: none;
+  min-height: 0;
+  max-height: 0;
+  transition-duration: 0.5s;
 }
 .card{
-  width: 720px;
+  max-width: 720px;
+  width: 100%;
   min-height: 1088px;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
   border-radius: 40px;
@@ -382,13 +442,188 @@
     border-radius: 40px;
     margin-bottom: 50px;
   }
-  &__name{
+  &__name,
+  &__title{
     font-size: 30px;
     text-align: center;
     padding: 39px 0;
     &::after{
       background-image: none;
     }
+  }
+  &__image,
+  &__text,
+  &__button,
+  &__input,
+  &__form-button{
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__text{
+    max-width: 525px;
+    width: 100%;
+    margin-bottom: 55px;
+    opacity: 0.5;
+  }
+  &__list{
+    max-width: 377px;
+    width: 100%;
+    margin: 0 auto 55px!important;
+  }
+  &__list-item{
+    @extend %montserrat-600;
+    font-size: 24px;
+    margin-bottom: 24px;
+    padding-left: 20px;
+    position: relative;
+    text-align: left;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      background-color: #000;
+      border-radius: 50%;
+      left: 0;
+      top: 10px;
+    }
+  }
+  &__button-download{
+    max-width: 424px;
+    width: 100%;
+    height: 52px;
+    @extend %main-gradient;
+    margin: 0 auto 20px;
+    @extend %dfc;
+    justify-content: center;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    span{
+      @extend %montserrat-600;
+      font-size: 15px;
+      text-transform: uppercase;
+      padding-left: 30px;
+    }
+    img{
+      width: 36px;
+      height: 36px;
+      margin-left: 40px;
+    }
+}
+  &__button{
+    @extend %btn;
+  }
+  &__form{
+    padding-bottom: 50px;
+    display: none;
+  }
+  &__form-title{
+    font-size: 24px;
+    margin-bottom: 40px;
+    &::after{
+    background-image: url('../images/content/line.png');
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  }
+  &__form-wrapper{
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 30px;
+  }
+  
+  &__input{
+    @extend %input;
+    text-align: left;
+  }
+  &__form-button{
+    @extend %btn;
+    max-width: 270px;
+  }
+}
+.start{
+  @extend %main-grad;
+  &__inner{
+    padding: 50px 0;
+    @extend %df;
+  }
+  &__title{
+    margin-bottom: 40px;
+  }
+  &__form{
+    @extend %df;
+    background-color: #fff;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  &__input{
+    @extend %input;
+    background-color: transparent;
+    width: 295px;
+  }
+  &__button{
+    padding: 0;
+    border: 0;
+    outline: 0;
+    margin-right: 4px;
+    cursor: pointer;
+  }
+  &__image{
+    width: 329px;
+    height: 329px;
+  }
+}
+.composition{
+  &__content{
+    padding: 120px 0;
+    background-color: #fff;
+  }
+  &__wrapper{
+    @extend %df;
+  }
+  &__info-title{
+    margin-bottom: 30px;
+  }
+  &__info-text{
+    max-width: 659px;
+    width: 100%;
+  }
+  &__image{
+    max-width: 808px;
+    width: 100%;
+    filter: drop-shadow(10px 10px 60px rgba(0, 0, 0, 0.2));
+    border-radius: 20px;
+    background-color: transparent;
+  }
+  &__channel{
+    @extend %main-grad;
+    padding: 100px 0;
+  }
+  &__subtitle,
+  &__title,
+  &__link{
+    text-align: center;
+  }
+  &__title{
+    &::after{
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto 40px;
+  }
+  &__link{
+    @extend %btn;
+    margin: 0 auto;
   }
 }
 
