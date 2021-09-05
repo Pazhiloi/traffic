@@ -7,17 +7,38 @@
 .header{
   position: relative;
   @extend %main-grad;
-  padding: 50px 0 45px;
+  padding: 50px 0 0;
  &__inner{
    @extend %df;
  }
-
  &__link{
    @extend %btn;
    background-color: transparent;
    color: #000;
    border: 2px solid #000;
  }
+  &__fixed{
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $accent;
+    animation-name: show__header;
+    animation-duration: 1s;
+    justify-content: space-around;
+    z-index: 2;
+  }
+  @keyframes show__header{
+  0%{
+    opacity: 0;
+    top: -70px;
+  }
+  100%{
+    opacity: 1;
+    top: 0;
+  }
+  }
 }
 .menu{
   &__list{
@@ -43,6 +64,7 @@
 }
 .vacancies{
   position: relative;
+  cursor: pointer;
   &__title{
     position: relative;
     &::after{
@@ -79,6 +101,7 @@
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     transition-duration: 0.5s;
+    z-index: 2;
     &::before,
     &::after{
       content: '';
@@ -120,7 +143,6 @@
 .top{
   overflow: hidden;
   padding: 50px 0 25px;
-  @extend %main-grad;
   &__inner{
     position: relative;
   }
@@ -160,25 +182,86 @@
     margin: 0 auto;
   }
   &__image,
-  &__image-faq{
+  &__image-faq,
+  &__image-about,
+  &__image-reviews{
     position: absolute;
   }
   &__image:first-child{
-    bottom: -75px;
+    width: 129px;
+    top: 0;
     left: 0;
   }
+  &__image:nth-child(2){
+    width: 390px;
+    left: 0;
+    bottom: -70px;
+  }
+  &__image:nth-of-type(3){
+    width: 118px;
+    right: 30%;
+    transform: translateX(30%);
+    bottom: -60px;
+  }
   &__image:last-child{
-    bottom: -80px;
-    right: 0;
+    width: 232px;
+    right: 5%;
+    transform: translateX(5%);
+    bottom: 80px;
   }
   &__image-faq:first-child{
+    width: 207px;
     left: 0;
     bottom: 0;
   }
   &__image-faq:last-child{
+    width: 365px;
     right: -140px;
     bottom: -25px;
   }
+  &__image-about:first-child{
+    width: 110px;
+    left: 0;
+    bottom: -50px;
+  }
+  &__image-about:nth-child(2){
+    width: 352px;
+    left: 100px;
+    top: -45px;
+  }
+  &__image-about:nth-of-type(3){
+    width: 289px;
+    right: 180px;
+    bottom: -23px;
+  }
+  &__image-about:last-child{
+    width: 97px;
+    right: 0;
+    bottom: 60px;
+  }
+  &__image-reviews:first-child{
+    width: 444px;
+    left: 0;
+    bottom: 0;
+  }
+  &__image-reviews:nth-child(2){
+    width: 70px;
+    left: 35%;
+    transform: translateX(-35%);
+    bottom: 25px;
+  }
+  &__image-reviews:nth-of-type(3){
+    width: 72px;
+    right: 30%;
+    transform: translateX(30%);
+    bottom: 50px;
+  }
+  &__image-reviews:last-child{
+    width: 275px;
+    right: 0;
+    bottom: -50px;
+  }
+  
 }
 .about{
   &__team{
@@ -624,6 +707,178 @@
   &__link{
     @extend %btn;
     margin: 0 auto;
+  }
+}
+.faq{
+  padding: 120px 0 140px;
+  &__item{
+    max-width: 1200px;
+    width: 100%;
+    height: 155px;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
+    border-radius: 40px;
+    transition: all 0.5s ease;
+    &:hover{
+      @extend %main-gradient;
+      box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &__item:not(:last-child){
+    margin-bottom: 50px;
+  }
+  &__number,
+  &__question{
+    @extend %montserrat-700;
+    font-size: 24px;
+  }
+  &__question{
+    margin-left: 50px;
+  }
+  &__svg-wrapper{
+    margin-left: auto;
+    width: 45px;
+    height: 45px;
+    background:linear-gradient(272.67deg, #F8DF5A 0%, #F9E576 100%);
+    border-radius: 50%;
+    @extend %dfc;
+    cursor: pointer;
+  }
+  &__svg{
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  &__text{
+    padding: 50px 50px 60px;
+    display: none;
+    line-height: 1.4;
+  }
+  &__item.active{
+    min-height: 378px;
+    @extend %main-gradient;
+    box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+    .faq__text{
+      display: block;
+    }
+    .faq__svg-wrapper{
+      background: #fff;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .faq__svg{
+      transform: rotate(180deg);
+      path{
+        fill: $accent;
+      }
+    }
+  }
+  &__top{
+    @extend %dfc;
+    padding: 40px 50px 0;
+  }
+  &__number{
+    @extend %df;
+    width: 75px;
+    height: 75px;
+    box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    span{
+      margin: 0 auto;
+    }
+  }
+}
+.info{
+  padding: 110px 0 130px;
+  &__inner{
+    @extend %df;
+  }
+  &__image{
+    width: 716px;
+  }
+  &__content{
+    max-width: 659px;
+    width: 100%;
+  }
+  &__title{
+    margin-bottom: 30px;
+  }
+
+}
+.gallery{
+  @extend %main-gradient;
+  &__inner{
+    padding: 110px 0 130px;
+  }
+  &__slider-wrapper{
+    margin-bottom: 80px;
+  }
+  &__title,
+  &__text{
+    text-align: center;
+    margin: 0 auto 30px;
+  }
+  &__text{
+    max-width: 791px;
+    width: 100%;
+  }
+}
+.units{
+  padding: 140px 0 150px;
+  &__title{
+    margin-bottom: 100px;
+  }
+  &__items{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: repeat(4, 1fr);
+    grid-column-gap: 100px;
+  }
+  &__item{
+    width: 340px;
+    height: 208px;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
+    border-radius: 40px;
+  }
+  &__name,
+  &__image{
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__image{
+    width: 130px;
+    margin-bottom: 10px;
+    margin-top: -50px;
+  }
+  &__name{
+    @extend %montserrat-600;
+    font-size: 24px;
+  }
+  &__name--width{
+    max-width: 167px;
+    width: 100%;
+  }
+}
+.units,
+.gallery{
+  &__title{
+    text-align: center;
+    &::after{
+      background-image: url('../images/content/line.png');
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.results,
+.reviews{
+  padding: 110px 0 120px;
+  &__title{
+    margin-bottom: 70px;
+    text-align: center;
+    &::after{
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 

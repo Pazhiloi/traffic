@@ -10,3 +10,12 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
         dropDownWrapper.classList.toggle('active');
         dropDownBtn.classList.toggle('active');
       });
+
+    window.onscroll = function showHeader() {
+    const header = document.querySelector('.header__inner');
+    if(window.pageYOffset > 200) {
+      header.classList.add('header__fixed');
+    } else{
+      header.classList.remove('header__fixed');
+    }
+   }
