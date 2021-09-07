@@ -20,7 +20,7 @@
             <a class="menu__link" href="#">О компании</a>
           </li>
           <li class="menu__item">
-            <a class="menu__link" href="#">Курсы</a>
+            <a class="menu__link" href="#courses">Курсы</a>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#">Отзывы</a>
@@ -29,7 +29,7 @@
             <a class="menu__link" href="#">FAQ</a>
           </li>
           <li class="menu__item">
-            <a class="menu__link" href="#">Магазин аккаунтов</a>
+            <a class="menu__link" href="https://arbitrage-up.ru/" target="_blank">Магазин аккаунтов</a>
           </li>
           <li class="menu__item">
             <div class="vacancies">
@@ -40,13 +40,13 @@
                 <div class="vacancies__inner">
                   <ul class="vacancies__list">
                     <li class="vacancies__item">
-                      <a href="#" class="vacancies__link">Вакансия 1</a>
+                      <a href="#contacts" class="vacancies__link">Вакансия 1</a>
                     </li>
                     <li class="vacancies__item">
-                      <a href="#" class="vacancies__link">Вакансия 2</a>
+                      <a href="#contacts" class="vacancies__link">Вакансия 2</a>
                     </li>
                     <li class="vacancies__item">
-                      <a href="#" class="vacancies__link">Вакансия 3</a>
+                      <a href="#contacts" class="vacancies__link">Вакансия 3</a>
                     </li>
                   </ul>
                 </div>
@@ -100,9 +100,9 @@
 
 </header>
 
-<main class="main">
+ <main class="main">
 
-   <section class="about">
+   <!-- <section class="about">
     <div class="partners">
       <img class="partners__image" src="images/partners/google.png" alt=" icon" >
       <img class="partners__image" src="images/partners/facebook.png" alt="facebook icon" >
@@ -175,34 +175,43 @@
     <div class="about__content">
       <div class="main-container">
         <div class="about__wrapper">
-          <div class="about__video"></div>
+          <video class="video" src="https://www.youtube.com/watch?v=phBThlPTBEg&list=RDphBThlPTBEg&start_radio=1" poster="images/video/video.jpg" controls></video>
           <div class="about__info">
             <h3 class="about__info-title mini-title">
               кто такой арбиртажник
             </h3>
             <p class="about__info-text">
-              The entire ecommerce world is coming together online to share exclusive knowledge, tactics and actionable strategies
-              on
+              The entire ecommerce world is coming together online to share exclusive knowledge, tactics and actionable strategies on
               how to build, operate, and scale profitable ecommerce businesses in 2021.
               This isn’t your typical virtual conference. Ecom World is gathering the world’s most innovative founders, brightest
               minds and trailblazing DTC brands for two days of masterclasses and networking - all from the comfort of your home.
-              Our speakers are masters of their craft and are handpicked to share their proven blueprints to success. Join them
-              and
-              40,000+ attendees for 10+ tracks of in-depth speeches, panels, workshops & live Q&A sessions on 15-16 November.
-              Interested in growing your brand, increasing your sales and making 2021 your most profitable year yet? This event is
-              for
-              you.
+            </p>
+            <p class="about__info-text">
+            Our speakers are masters of their craft and are handpicked to share their proven blueprints to success. Join them
+            and
+            40,000+ attendees for 10+ tracks of in-depth speeches, panels, workshops & live Q&A sessions on 15-16 November.
+            Interested in growing your brand, increasing your sales and making 2021 your most profitable year yet? This event is
+            for
+            you.
             </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="courses">
+    <div class="courses" id="courses">
+      <div class="courses__circles">
+        <div class="courses__circle circle"></div>
+        <div class="courses__circle circle"></div>
+        <div class="courses__circle circle"></div>
+        <div class="courses__circle circle"></div>
+        <div class="courses__circle circle"></div>
+        <div class="courses__circle circle"></div>
+      </div>
       <div class="main-container">
         <h3 class="courses__title mini-title">
           выбери нужный курс
         </h3>
-          <div class="courses__items">
+          <div class="courses__items" >
             <div class="courses__item">
               <div class="courses__preview">
                 <img class="courses__image" src="images/icons/box.png" alt="box icon">
@@ -210,122 +219,122 @@
                   Facebook товарка и нутра
                 </div>
               </div>
-              <div class="cards">
-                <div class="card">
-                  <div class="card__top">
-                    <div class="card__name mini-title">
-                      lorem ipsum dolor
-                    </div>
-                  </div>
-                  <img class="card__image" src="images/icons/rocket.png" alt="rocket icon">
-                  <div class="card__title mini-title">
-                    lorem ipsum dolor
-                  </div>
-                  <p class="card__text">
-                    Lorem ipsum dolor im consectetur amor lorem
-                    ipsum dolor im consectetur amor
-                  </p>
-                  <ul class="card__list">
-                    <li class="card__list-item">
-                      Lorem ipsum
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem sit
-                    </li>
-                  </ul>
-                  <button class="card__button-download">
-                    <span>скачать подробный план курса</span>
-                    <img src="images/icons/download.png" alt="download icon">
-                  </button>
-                  <button class="card__button">
-                    выбрать
-                  </button>
-                  <form class="card__form">
-                    <div class="card__form-title  mini-title">
-                      записаться на курс
-                    </div>
-                    <div class="card__form-wrapper">
-                      <input class="card__input" type="text" placeholder="Имя">
-                      <input class="card__input" type="text" placeholder="Номер телефона">
-                      <input class="card__input" type="text" placeholder="Телеграмм">
-                      <button class="card__form-button" type="submit">записаться</button>
-                    </div>
-                  </form>
-                </div>
-                <div class="card">
-                  <div class="card__top">
-                    <div class="card__name mini-title">
-                      lorem ipsum dolor
-                    </div>
-                  </div>
-                  <img class="card__image" src="images/icons/star.png" alt="star icon">
-                  <div class="card__title mini-title">
-                    lorem ipsum dolor
-                  </div>
-                  <p class="card__text">
-                    Lorem ipsum dolor im consectetur amor lorem
-                    ipsum dolor im consectetur amor
-                  </p>
-                  <ul class="card__list">
-                    <li class="card__list-item">
-                      Lorem ipsum
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem sit
-                    </li>
-                  </ul>
-                  <button class="card__button-download">
-                    <span>скачать подробный план курса</span>
-                    <img src="images/icons/download.png" alt="download icon">
-                  </button>
-                  <button class="card__button">
-                    выбрать
-                  </button>
-                  <form class="card__form">
-                    <div class="card__form-title  mini-title">
-                      записаться на курс
-                    </div>
-                    <div class="card__form-wrapper">
-                      <input class="card__input" type="text" placeholder="Имя">
-                      <input class="card__input" type="text" placeholder="Номер телефона">
-                      <input class="card__input" type="text" placeholder="Телеграмм">
-                      <button class="card__form-button" type="submit">записаться</button>
-                    </div>
-                  </form>
-                </div>
-                
-              </div>
               
+              
+            </div><div class="cards">
+              <div class="card">
+                <div class="card__top">
+                  <div class="card__name mini-title">
+                    lorem ipsum dolor
+                  </div>
+                </div>
+                <img class="card__image" src="images/icons/rocket.png" alt="rocket icon">
+                <div class="card__title mini-title">
+                  lorem ipsum dolor
+                </div>
+                <p class="card__text">
+                  Lorem ipsum dolor im consectetur amor lorem
+                  ipsum dolor im consectetur amor
+                </p>
+                <ul class="card__list">
+                  <li class="card__list-item">
+                    Lorem ipsum
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem sit
+                  </li>
+                </ul>
+                <button class="card__button-download">
+                  <span>скачать подробный план курса</span>
+                  <img src="images/icons/download.png" alt="download icon">
+                </button>
+                <button class="card__button">
+                  выбрать
+                </button>
+                <form class="card__form">
+                  <div class="card__form-title  mini-title">
+                    записаться на курс
+                  </div>
+                  <div class="card__form-wrapper">
+                    <input class="card__input" type="text" placeholder="Имя">
+                    <input class="card__input" type="text" placeholder="Номер телефона">
+                    <input class="card__input" type="text" placeholder="Телеграмм">
+                    <button class="card__form-button" type="submit">записаться</button>
+                  </div>
+                </form>
+              </div>
+              <div class="card">
+                <div class="card__top">
+                  <div class="card__name mini-title">
+                    lorem ipsum dolor
+                  </div>
+                </div>
+                <img class="card__image" src="images/icons/star.png" alt="star icon">
+                <div class="card__title mini-title">
+                  lorem ipsum dolor
+                </div>
+                <p class="card__text">
+                  Lorem ipsum dolor im consectetur amor lorem
+                  ipsum dolor im consectetur amor
+                </p>
+                <ul class="card__list">
+                  <li class="card__list-item">
+                    Lorem ipsum
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem sit
+                  </li>
+                </ul>
+                <button class="card__button-download">
+                  <span>скачать подробный план курса</span>
+                  <img src="images/icons/download.png" alt="download icon">
+                </button>
+                <button class="card__button">
+                  выбрать
+                </button>
+                <form class="card__form">
+                  <div class="card__form-title  mini-title">
+                    записаться на курс
+                  </div>
+                  <div class="card__form-wrapper">
+                    <input class="card__input" type="text" placeholder="Имя">
+                    <input class="card__input" type="text" placeholder="Номер телефона">
+                    <input class="card__input" type="text" placeholder="Телеграмм">
+                    <button class="card__form-button" type="submit">записаться</button>
+                  </div>
+                </form>
+              </div>
+            
             </div>
              <div class="courses__item">
               <div class="courses__preview">
@@ -334,121 +343,122 @@
                   Facebook гемблинг
                 </div>
               </div>
-              <div class="cards">
-                <div class="card">
-                  <div class="card__top">
-                    <div class="card__name mini-title">
-                      lorem ipsum dolor
-                    </div>
-                  </div>
-                  <img class="card__image" src="images/icons/rocket.png" alt="rocket icon">
-                  <div class="card__title mini-title">
-                    lorem ipsum dolor
-                  </div>
-                  <p class="card__text">
-                    Lorem ipsum dolor im consectetur amor lorem
-                    ipsum dolor im consectetur amor
-                  </p>
-                  <ul class="card__list">
-                    <li class="card__list-item">
-                      Lorem ipsum
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem sit
-                    </li>
-                  </ul>
-                  <button class="card__button-download">
-                    <span>скачать подробный план курса</span>
-                    <img src="images/icons/download.png" alt="download icon">
-                  </button>
-                  <button class="card__button">
-                    выбрать
-                  </button>
-                  <form class="card__form">
-                    <div class="card__form-title  mini-title">
-                      записаться на курс
-                    </div>
-                    <div class="card__form-wrapper">
-                      <input class="card__input" type="text" placeholder="Имя">
-                      <input class="card__input" type="text" placeholder="Номер телефона">
-                      <input class="card__input" type="text" placeholder="Телеграмм">
-                      <button class="card__form-button" type="submit">записаться</button>
-                    </div>
-                  </form>
-                </div>
-                <div class="card">
-                  <div class="card__top">
-                    <div class="card__name mini-title">
-                      lorem ipsum dolor
-                    </div>
-                  </div>
-                  <img class="card__image" src="images/icons/star.png" alt="star icon">
-                  <div class="card__title mini-title">
-                    lorem ipsum dolor
-                  </div>
-                  <p class="card__text">
-                    Lorem ipsum dolor im consectetur amor lorem
-                    ipsum dolor im consectetur amor
-                  </p>
-                  <ul class="card__list">
-                    <li class="card__list-item">
-                      Lorem ipsum
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem sit
-                    </li>
-                  </ul>
-                  <button class="card__button-download">
-                    <span>скачать подробный план курса</span>
-                    <img src="images/icons/download.png" alt="download icon">
-                  </button>
-                  <button class="card__button">
-                    выбрать
-                  </button>
-                  <form class="card__form">
-                    <div class="card__form-title  mini-title">
-                      записаться на курс
-                    </div>
-                    <div class="card__form-wrapper">
-                      <input class="card__input" type="text" placeholder="Имя">
-                      <input class="card__input" type="text" placeholder="Номер телефона">
-                      <input class="card__input" type="text" placeholder="Телеграмм">
-                      <button class="card__form-button" type="submit">записаться</button>
-                    </div>
-                  </form>
-                </div>
               
+            </div>
+            <div class="cards">
+              <div class="card">
+                <div class="card__top">
+                  <div class="card__name mini-title">
+                    lorem ipsum dolor
+                  </div>
+                </div>
+                <img class="card__image" src="images/icons/rocket.png" alt="rocket icon">
+                <div class="card__title mini-title">
+                  lorem ipsum dolor
+                </div>
+                <p class="card__text">
+                  Lorem ipsum dolor im consectetur amor lorem
+                  ipsum dolor im consectetur amor
+                </p>
+                <ul class="card__list">
+                  <li class="card__list-item">
+                    Lorem ipsum
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem sit
+                  </li>
+                </ul>
+                <button class="card__button-download">
+                  <span>скачать подробный план курса</span>
+                  <img src="images/icons/download.png" alt="download icon">
+                </button>
+                <button class="card__button">
+                  выбрать
+                </button>
+                <form class="card__form">
+                  <div class="card__form-title  mini-title">
+                    записаться на курс
+                  </div>
+                  <div class="card__form-wrapper">
+                    <input class="card__input" type="text" placeholder="Имя">
+                    <input class="card__input" type="text" placeholder="Номер телефона">
+                    <input class="card__input" type="text" placeholder="Телеграмм">
+                    <button class="card__form-button" type="submit">записаться</button>
+                  </div>
+                </form>
               </div>
+              <div class="card">
+                <div class="card__top">
+                  <div class="card__name mini-title">
+                    lorem ipsum dolor
+                  </div>
+                </div>
+                <img class="card__image" src="images/icons/star.png" alt="star icon">
+                <div class="card__title mini-title">
+                  lorem ipsum dolor
+                </div>
+                <p class="card__text">
+                  Lorem ipsum dolor im consectetur amor lorem
+                  ipsum dolor im consectetur amor
+                </p>
+                <ul class="card__list">
+                  <li class="card__list-item">
+                    Lorem ipsum
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem sit
+                  </li>
+                </ul>
+                <button class="card__button-download">
+                  <span>скачать подробный план курса</span>
+                  <img src="images/icons/download.png" alt="download icon">
+                </button>
+                <button class="card__button">
+                  выбрать
+                </button>
+                <form class="card__form">
+                  <div class="card__form-title  mini-title">
+                    записаться на курс
+                  </div>
+                  <div class="card__form-wrapper">
+                    <input class="card__input" type="text" placeholder="Имя">
+                    <input class="card__input" type="text" placeholder="Номер телефона">
+                    <input class="card__input" type="text" placeholder="Телеграмм">
+                    <button class="card__form-button" type="submit">записаться</button>
+                  </div>
+                </form>
+              </div>
+            
             </div>
             <div class="courses__item">
               <div class="courses__preview">
@@ -457,124 +467,125 @@
                   Facebook товарка и нутра
                 </div>
               </div>
-              <div class="cards">
-                <div class="card">
-                  <div class="card__top">
-                    <div class="card__name mini-title">
-                      lorem ipsum dolor
-                    </div>
-                  </div>
-                  <img class="card__image" src="images/icons/rocket.png" alt="rocket icon">
-                  <div class="card__title mini-title">
-                    lorem ipsum dolor
-                  </div>
-                  <p class="card__text">
-                    Lorem ipsum dolor im consectetur amor lorem
-                    ipsum dolor im consectetur amor
-                  </p>
-                  <ul class="card__list">
-                    <li class="card__list-item">
-                      Lorem ipsum
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem sit
-                    </li>
-                  </ul>
-                  <button class="card__button-download">
-                    <span>скачать подробный план курса</span>
-                    <img src="images/icons/download.png" alt="download icon">
-                  </button>
-                  <button class="card__button">
-                    выбрать
-                  </button>
-                  <form class="card__form">
-                    <div class="card__form-title  mini-title">
-                      записаться на курс
-                    </div>
-                    <div class="card__form-wrapper">
-                      <input class="card__input" type="text" placeholder="Имя">
-                      <input class="card__input" type="text" placeholder="Номер телефона">
-                      <input class="card__input" type="text" placeholder="Телеграмм">
-                      <button class="card__form-button" type="submit">записаться</button>
-                    </div>
-                  </form>
-                </div>
-                <div class="card">
-                  <div class="card__top">
-                    <div class="card__name mini-title">
-                      lorem ipsum dolor
-                    </div>
-                  </div>
-                  <img class="card__image" src="images/icons/star.png" alt="star icon">
-                  <div class="card__title mini-title">
-                    lorem ipsum dolor
-                  </div>
-                  <p class="card__text">
-                    Lorem ipsum dolor im consectetur amor lorem
-                    ipsum dolor im consectetur amor
-                  </p>
-                  <ul class="card__list">
-                    <li class="card__list-item">
-                      Lorem ipsum
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor
-                    </li>
-                    <li class="card__list-item">
-                      Lorem ipsum dolor sir amet
-                    </li>
-                    <li class="card__list-item">
-                      Lorem sit
-                    </li>
-                  </ul>
-                  <button class="card__button-download">
-                    <span>скачать подробный план курса</span>
-                    <img src="images/icons/download.png" alt="download icon">
-                  </button>
-                  <button class="card__button">
-                    выбрать
-                  </button>
-                  <form class="card__form">
-                    <div class="card__form-title  mini-title">
-                      записаться на курс
-                    </div>
-                    <div class="card__form-wrapper">
-                      <input class="card__input" type="text" placeholder="Имя">
-                      <input class="card__input" type="text" placeholder="Номер телефона">
-                      <input class="card__input" type="text" placeholder="Телеграмм">
-                      <button class="card__form-button" type="submit">записаться</button>
-                    </div>
-                  </form>
-                </div>
               
+            </div>
+            <div class="cards">
+              <div class="card">
+                <div class="card__top">
+                  <div class="card__name mini-title">
+                    lorem ipsum dolor
+                  </div>
+                </div>
+                <img class="card__image" src="images/icons/rocket.png" alt="rocket icon">
+                <div class="card__title mini-title">
+                  lorem ipsum dolor
+                </div>
+                <p class="card__text">
+                  Lorem ipsum dolor im consectetur amor lorem
+                  ipsum dolor im consectetur amor
+                </p>
+                <ul class="card__list">
+                  <li class="card__list-item">
+                    Lorem ipsum
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem sit
+                  </li>
+                </ul>
+                <button class="card__button-download">
+                  <span>скачать подробный план курса</span>
+                  <img src="images/icons/download.png" alt="download icon">
+                </button>
+                <button class="card__button">
+                  выбрать
+                </button>
+                <form class="card__form">
+                  <div class="card__form-title  mini-title">
+                    записаться на курс
+                  </div>
+                  <div class="card__form-wrapper">
+                    <input class="card__input" type="text" placeholder="Имя">
+                    <input class="card__input" type="text" placeholder="Номер телефона">
+                    <input class="card__input" type="text" placeholder="Телеграмм">
+                    <button class="card__form-button" type="submit">записаться</button>
+                  </div>
+                </form>
               </div>
+              <div class="card">
+                <div class="card__top">
+                  <div class="card__name mini-title">
+                    lorem ipsum dolor
+                  </div>
+                </div>
+                <img class="card__image" src="images/icons/star.png" alt="star icon">
+                <div class="card__title mini-title">
+                  lorem ipsum dolor
+                </div>
+                <p class="card__text">
+                  Lorem ipsum dolor im consectetur amor lorem
+                  ipsum dolor im consectetur amor
+                </p>
+                <ul class="card__list">
+                  <li class="card__list-item">
+                    Lorem ipsum
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor
+                  </li>
+                  <li class="card__list-item">
+                    Lorem ipsum dolor sir amet
+                  </li>
+                  <li class="card__list-item">
+                    Lorem sit
+                  </li>
+                </ul>
+                <button class="card__button-download">
+                  <span>скачать подробный план курса</span>
+                  <img src="images/icons/download.png" alt="download icon">
+                </button>
+                <button class="card__button">
+                  выбрать
+                </button>
+                <form class="card__form">
+                  <div class="card__form-title  mini-title">
+                    записаться на курс
+                  </div>
+                  <div class="card__form-wrapper">
+                    <input class="card__input" type="text" placeholder="Имя">
+                    <input class="card__input" type="text" placeholder="Номер телефона">
+                    <input class="card__input" type="text" placeholder="Телеграмм">
+                    <button class="card__form-button" type="submit">записаться</button>
+                  </div>
+                </form>
+              </div>
+            
             </div>
             <div class="courses__item">
-              <div class="courses__wrapper">
+              <div class="courses__wrapper ">
               <div class="courses__wrapper-image">
                   <img class="courses__image" src="images/icons/add-apps.png" alt="add icon">
                   <span class="courses__preview-title">
@@ -597,12 +608,17 @@
               </div>
             </div> 
           </div>
-        
+      </div>
+      <div class="courses__images">
+        <img class="courses__bg-image" src="images/content/helix.png" alt=" background image">
+        <img class="courses__bg-image" src="images/content/pyramid.png" alt=" background image">
+        <img class="courses__bg-image" src="images/bg/thorus.png" alt=" background image">
+        <img class="courses__bg-image" src="images/content/conus.png" alt=" background image">
       </div>
     </div>
-  </section> 
+  </section>  -->
   <section class="composition">
-    <div class="start">
+    <!-- <div class="start">
       <div class="container">
         <div class="start__inner">
           <div class="start__content">
@@ -651,20 +667,30 @@
           <img class="composition__image" src="images/content/team.png" alt="team image">
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="composition__channel">
       <div class="main-container">
         <div class="composition__inner">
           <div class="composition__subtitle subtitle">Подпишись на ТГ канал</div>
           <h2 class="composition__title title">будь в курсе последних новостей
           в арбитраже трафика</h2>
-          <a class="composition__link" href="#">подписаться</a>
+          <a class="composition__link" href="https://t.me/Arbitrage_UP" target="_blank">подписаться</a>
         </div>
+      </div>
+      <div class="composition__bg">
+        <span class="composition__circle circle"></span>
+        <span class="composition__circle circle"></span>
+        <span class="composition__circle circle"></span>
+        <span class="composition__circle circle"></span>
+        <img class="composition__bg-image" src="images/content/pyramid-mini.png" alt="background image">
+        <img class="composition__bg-image" src="images/bg/doodle.png" alt="background image">
+        <img class="composition__bg-image" src="images/bg/thorus.png" alt="background image">
+        <img class="composition__bg-image" src="images/content/purple-conus.png" alt="background image">
       </div>
     </div>
   </section>
-</main>
-<footer class="footer">
+</main> 
+<footer class="footer" id="contacts">
   <div class="main-container">
     <div class="footer__inner">
       <div class="footer__tels">

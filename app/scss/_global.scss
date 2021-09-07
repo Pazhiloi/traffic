@@ -66,4 +66,11 @@ a{
   opacity: 0.5;
   margin-bottom: 30px;
 }
+.circle{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  @extend %main-grad;
+  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.15);
+}
 

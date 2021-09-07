@@ -27,7 +27,7 @@
     animation-name: show__header;
     animation-duration: 1s;
     justify-content: space-around;
-    z-index: 2;
+    z-index: 10;
   }
   @keyframes show__header{
   0%{
@@ -242,7 +242,7 @@
   &__image-reviews:first-child{
     width: 444px;
     left: 0;
-    bottom: 0;
+    bottom: -25px;
   }
   &__image-reviews:nth-child(2){
     width: 70px;
@@ -265,6 +265,7 @@
 }
 .about{
   &__team{
+    overflow: hidden;
     @extend %main-grad;
     position: relative;
     &::after,
@@ -306,15 +307,25 @@
   &__form{
     @extend %dfc;
   }
-  &__form{
-    display: none;
-  }
-  &__form.active{
-    display: flex;
-  }
+  
   &__button,
   &__form-button{
     @extend %btn;
+  }
+  &__form{
+    transform: translateX(3000px);
+    position: absolute;
+    z-index: 2;
+    transition: transform 0.5s ease;
+  }
+  &__button{
+    transition: opacity 0.5s ease;
+  }
+  &__form.active{
+    transform: translateX(0);
+  }
+  &__button.hide{
+    opacity: 0;
   }
   &__form-button{
     width: 173px;
@@ -336,26 +347,6 @@
   &__content{
     padding: 120px 0 120px;
     position: relative;
-    &::before,
-    &::after{
-      content: '';
-      position: absolute;
-      background-repeat: no-repeat;
-    }
-    &::before{
-      left: 0;
-      top: 0;
-      background-image: url('../images/bg/circles.png');
-      width: 613px;
-      height: 618px;
-    }
-    &::after{
-      top: 0;
-      right: 0;
-      background-image: url('../images/bg/circles-big.png');
-      width: 613px;
-      height: 618px;
-    }
   }
   &__wrapper{
     @extend %df;
@@ -414,8 +405,77 @@
     }
 }
 .courses{
+  overflow: hidden;
   padding: 120px 0;
   text-align: center;
+  position: relative;
+  &__circles,
+  &__images{
+    width: 0;
+    height: 0;
+  }
+  &__bg-image{
+    position: absolute;
+    z-index: 3;
+  }
+  &__bg-image:first-child{
+    top: 0;
+    left: 5%;
+    transform: translateX(-5%);
+  }
+   &__bg-image:nth-child(2){
+    top: 170px;
+    right: 14%;
+    transform: translate(14%, 0) rotate(320deg);
+  }
+  &__bg-image:nth-child(3){
+    bottom: -70px;
+    left: 0;
+  }
+  &__bg-image:last-child{
+    bottom: -50px;
+    right: 5%;
+  }
+&__circle{
+  position: absolute;
+}
+&__circle:first-child{
+  top: 0;
+  left: 30%;
+  transform: translateX(30%);
+}
+&__circle:nth-child(2){
+  width: 33px;
+  height: 33px;
+  right: 32%;
+  top: 180px;
+}
+&__circle:nth-child(3){
+  width: 27px;
+  height: 27px;
+  left: 7%;
+  top: 40%;
+  transform: translate(-7%, -40%);
+}
+&__circle:nth-child(4){
+  right: 7%;
+  top: 45%;
+  transform: translate(-7%, -45%);
+}
+&__circle:nth-child(5){
+  width: 54px;
+  height: 54px;
+  left: 10%;
+  top: 63%;
+  transform: translate(-10%, -63%);
+}
+&__circle:last-child{
+  width: 87px;
+  height: 87px;
+  top: 74%;
+  right: 10%;
+  transform: translate(10%, -74%);
+}
   &__title{
     margin-bottom: 65px;
     &::after{
@@ -424,26 +484,49 @@
     transform: translateX(-50%);
   }
   }
+  &__item.active + .cards{
+    opacity: 1;
+    z-index: 1;
+    min-height: 1088px;
+    margin-bottom: 250px;
+  }
   &__item:not(:last-child){
     margin-bottom: 50px;
   }
   &__preview,
   &__wrapper{
-    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+    background: #f6f6f6;
+     max-width: 1200px;
     width: 100%;
-    height: 155px;
+    min-height: 155px;
     @extend %dfc;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
-    border-radius: 40px;
     margin: 0 auto 50px;
-    transition: all 0.5s ease;
+    border-radius: 40px;
     cursor: pointer;
-    &:hover{
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
       background: linear-gradient(180deg, #FDF783 0%, #F9E576 100%);
-      box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 40px;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.5s ease;
+    }
+    &:hover:before{
+      box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2); 
+      opacity: 1;
     }
   }
-
+  &__wrapper{
+    height: 155px;
+  }
   &__image,
   &__preview-title{
     margin-left: 50px;
@@ -459,18 +542,17 @@
   }
   &__wrapper{
     display: block;
-    .courses__list-wrapper{
-      display: none;
-    }
+    transition: all 0.5s ease;
+  }
+  &__list-wrapper{
+    opacity: 0;
+  }
+  &__list-wrapper.active{
+    opacity: 1;
   }
   &__wrapper.active{
-    min-height: 436px;
-    @extend %main-gradient;
+    height: 436px;
     box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
-    cursor: auto;
-    .courses__list-wrapper{
-      display: flex;
-    }
   }
   &__wrapper-image{
     @extend %dfc;
@@ -501,25 +583,50 @@
    }
   }
 }
+
 .cards{
   max-width: 1490px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -ms-grid-columns: repeat(2, 1fr);
   grid-column-gap: 50px;
-  display: none;
   min-height: 0;
   max-height: 0;
-  transition-duration: 0.5s;
+  transition: all 0.5s ease;
+  opacity: 0;
+  z-index: -1;
 }
 .card{
+  position: relative;
+  overflow: hidden;
   max-width: 720px;
   width: 100%;
   min-height: 1088px;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
   border-radius: 40px;
+  padding-bottom: 50px;
+  &::after,
+  &::before{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    @extend %main-grad;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+  }
+  &::before{
+    width: 118px;
+    height: 118px;
+    bottom: 23%;
+    left: -50px;
+  }
+  &::after{
+    width: 30px;
+    height: 30px;
+    right: 50px;
+    top: 50%;
+  }
   &__top{
     @extend %main-gradient;
     border-radius: 40px;
@@ -532,6 +639,19 @@
     padding: 39px 0;
     &::after{
       background-image: none;
+    }
+  }
+  &__title{
+    &::before{
+      content: '';
+      position: absolute;
+      @extend %main-grad;
+      width: 30px;
+      height: 30px;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+      left: 100px;
+      top: 0;
+      border-radius: 50%;
     }
   }
   &__image,
@@ -599,10 +719,7 @@
   &__button{
     @extend %btn;
   }
-  &__form{
-    padding-bottom: 50px;
-    display: none;
-  }
+ 
   &__form-title{
     font-size: 24px;
     margin-bottom: 40px;
@@ -611,6 +728,16 @@
     left: 50%;
     transform: translateX(-50%);
   }
+  }
+   &__form{
+    padding-bottom: 50px;
+    display: none;
+  }
+  &__button.hide{
+    display: none;
+  }
+  &__form.active{
+    display: block;
   }
   &__form-wrapper{
     margin: 0 auto;
@@ -628,6 +755,14 @@
   &__form-button{
     @extend %btn;
     max-width: 270px;
+  }
+}
+.card.active{
+  &__form{
+    display: block;
+  }
+  &__button{
+    display: none;
   }
 }
 .start{
@@ -689,6 +824,59 @@
   &__channel{
     @extend %main-grad;
     padding: 100px 0;
+    position: relative;
+  }
+  &__circle,
+  &__bg-image{
+    position: absolute;
+  }
+  &__circle:nth-child(1){
+    width: 33px;
+    height: 33px;
+    right: 20%;
+    transform: translateX(20%);
+    top: 100px;
+  }
+  &__circle:nth-child(2){
+    width: 54px;
+    height: 54px;
+    left: 15%;
+    transform: translate(-15%, 50%);
+    top: 50%;
+  }
+  &__circle:nth-child(3){
+    right: 5%;
+    transform: translate(-5%, -30%);
+    bottom: 30%;
+  }
+  &__circle:nth-child(4){
+    width: 27px;
+    height: 27px;
+    left: 5%;
+    transform: translate(-5%, -20%);
+    bottom: 20%;
+  }
+  &__bg-image:nth-child(5){
+    width: 129px;
+    top: 0;
+    left: 0;
+  }
+  &__bg-image:nth-child(6){
+    width: 200px;
+    top: 0;
+    right: 0;
+  }
+  &__bg-image:nth-child(7){
+    width: 126px;
+    bottom: 0;
+    left: 10%;
+    transform: translateX(-10%);
+  }
+  &__bg-image:nth-child(8){
+    width: 156px;
+    bottom: 0;
+    right: 10%;
+    transform: translateX(10%);
   }
   &__subtitle,
   &__title,
@@ -711,15 +899,32 @@
 }
 .faq{
   padding: 120px 0 140px;
+  position: relative;
   &__item{
+    position: relative;
     max-width: 1200px;
     width: 100%;
-    height: 155px;
-    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
+    max-height: 155px;
     border-radius: 40px;
+    cursor: pointer;
     transition: all 0.5s ease;
-    &:hover{
+    z-index: 1;
+    &::before{
       @extend %main-gradient;
+      z-index: -1;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 40px;
+      box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    &:hover::before{
+      opacity: 1;
       box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
     }
   }
@@ -735,10 +940,21 @@
     margin-left: 50px;
   }
   &__svg-wrapper{
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      background:linear-gradient(272.67deg, #F8DF5A 0%, #F9E576 100%);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transition: all 0.5s ease;
+    }
     margin-left: auto;
     width: 45px;
     height: 45px;
-    background:linear-gradient(272.67deg, #F8DF5A 0%, #F9E576 100%);
     border-radius: 50%;
     @extend %dfc;
     cursor: pointer;
@@ -746,23 +962,25 @@
   &__svg{
     margin: 0 auto;
     position: relative;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.5s ease;
   }
   &__text{
     padding: 50px 50px 60px;
-    display: none;
     line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
   &__item.active{
-    min-height: 378px;
-    @extend %main-gradient;
+    max-height: 2000px;
     box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
     .faq__text{
-      display: block;
+      opacity: 1;
     }
     .faq__svg-wrapper{
-      background: #fff;
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+      &::before{
+        background: #fff;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+      }
     }
     .faq__svg{
       transform: rotate(180deg);
@@ -785,6 +1003,12 @@
       margin: 0 auto;
     }
   }
+  &__bg-image{
+    width: 126px;
+  }
+  &__circle:nth-child(2){
+    right: 10%;
+  }
 }
 .info{
   padding: 110px 0 130px;
@@ -804,11 +1028,13 @@
 
 }
 .gallery{
+  position: relative;
+  overflow: hidden;
   @extend %main-gradient;
   &__inner{
     padding: 110px 0 130px;
   }
-  &__slider-wrapper{
+  &__slider{
     margin-bottom: 80px;
   }
   &__title,
@@ -820,9 +1046,47 @@
     max-width: 791px;
     width: 100%;
   }
+  &__bg-image{
+    position: absolute;
+  }
+  &__bg-image:first-child{
+    width: 280px;
+    left: -160px;
+    top: 0;
+  }
+  &__bg-image:nth-child(2){
+    width: 104px;
+    top: 0;
+    right: 10%;
+    transform: translateX(10%);
+  }
+  &__bg-image:nth-child(3){
+    width: 304px;
+    bottom: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+  }
+  &__bg-image:nth-child(4){
+    width: 126px;
+    bottom: 25%;
+    right: 10%;
+    transform: translate(10%, -25%);
+  }
+  &__bg-image:nth-child(5){
+    width: 300px;
+    bottom: 0;
+    left: 0;
+  }
+  &__bg-image:nth-child(6){
+    width: 377px;
+    bottom: -70px;
+    right: -190px;
+    transform: rotate(-40deg);
+  }
 }
 .units{
   padding: 140px 0 150px;
+  position: relative;
   &__title{
     margin-bottom: 100px;
   }
@@ -833,6 +1097,7 @@
     grid-column-gap: 100px;
   }
   &__item{
+    position: relative;
     width: 340px;
     height: 208px;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1), inset 4px 4px 20px rgba(255, 255, 255, 0.7);
@@ -856,6 +1121,51 @@
     max-width: 167px;
     width: 100%;
   }
+  &__circle{
+    position: absolute;
+  }
+  &__circle:nth-child(1){
+    width: 54px;
+    height: 54px;
+    left: 10%;
+    transform: translateX(-10%);
+    top: 100px;
+  }
+  &__circle:nth-child(2){
+    width: 116px;
+    height: 116px;
+    right: 26%;
+    transform: translateX(26%);
+    top: 140px;
+  }
+  &__circle:nth-child(3){
+    width: 33px;
+    height: 33px;
+    right: 5%;
+    transform: translateX(5%);
+    top: 120px;
+  }
+  &__circle:nth-child(4){
+    width: 27px;
+    height: 27px;
+    left: 2%;
+    transform: translateX(-2%);
+    top: 220px;
+  }
+  &__circle:nth-child(5){
+    width: 81px;
+    height: 81px;
+    left: 19%;
+    transform: translateX(-19%);
+    bottom: 60px;
+  }
+  &__circle:nth-child(6){
+    width: 44px;
+    height: 44px;
+    right: 3%;
+    transform: translateX(3%);
+    bottom: 100px;
+  }
 }
 .units,
 .gallery{
@@ -868,10 +1178,65 @@
     }
   }
 }
+.results,
+.reviews,
+.review{
+  &__next,
+  &__prev{
+    z-index: 2;
+    background: rgba($color: #000, $alpha: 0.5);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    @extend %dfc;
+    position: absolute;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    svg{
+      margin: 0 auto;
+    }
+  }
+  &__next.slick-disabled,
+  &__prev.slick-disabled{
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    background: rgba($color: #fff, $alpha: 1);
+    svg{
+      path{
+        fill: $accent;
+      }
+    }
+  }
+}
+ .slick-slide.slick-center.slick-current{
+     border-radius: 20px;
+    transform: scale(1.45);
+    img{
+      border-radius: 20px;
+    }
+  }
 
 .results,
 .reviews{
   padding: 110px 0 120px;
+  &__item{
+    border-radius: 20px;
+    img{
+      width: 550px;
+      height: 330px;
+    }
+  }
+ 
+  &__next{
+    transform: rotate(180deg) translateY(50%);
+    right: -40px;
+    top: 50%;
+  }
+  &__prev{
+    left: -40px;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
   &__title{
     margin-bottom: 70px;
     text-align: center;
@@ -879,6 +1244,52 @@
       left: 50%;
       transform: translateX(-50%);
     }
+  }
+}
+.review{
+  @extend %main-gradient;
+  position: relative;
+  &__inner{
+    padding: 110px 0;
+  }
+  &__item{
+    @extend %df;
+    display: flex!important;
+  }
+  &__title{
+    &::after{
+      background-image: url('../images/content/line.png');
+    }
+  }
+  &__text,
+  &__title{
+    margin-bottom: 30px;
+  }
+  &__content{
+    position: relative;
+    z-index: 3;
+    max-width: 607px;
+    width: 100%;
+  }
+  &__image{
+    border-radius: 20px;
+      width: 920px;
+      height: 519px;
+      filter: drop-shadow(10px 10px 60px rgba(0, 0, 0, 0.2));
+  }
+ &__next{
+    transform: rotate(180deg) translate(45% , 50%);
+    right: 45%;
+    top: 50%;
+    z-index: 10;
+  }
+  &__prev{
+    left: 20px;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+  &__circle:nth-child(2){
+    display: none;
   }
 }
 
