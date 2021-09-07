@@ -320,6 +320,8 @@
   }
   &__button{
     transition: opacity 0.5s ease;
+    position: relative;
+    z-index: 2;
   }
   &__form.active{
     transform: translateX(0);
@@ -354,6 +356,7 @@
   &__info{
     max-width: 660px;
     width: 100%;
+    margin-left: 10px;
   }
   &__info-title{
     margin-bottom: 30px;
@@ -583,6 +586,11 @@
    }
   }
 }
+.video{
+  max-width: 808px;
+  width: 100%;
+  height: 456px;
+}
 
 .cards{
   max-width: 1490px;
@@ -766,6 +774,7 @@
   }
 }
 .start{
+  position: relative;
   @extend %main-grad;
   &__inner{
     padding: 50px 0;
@@ -800,6 +809,7 @@
   }
 }
 .composition{
+  overflow: hidden;
   &__content{
     padding: 120px 0;
     background-color: #fff;
