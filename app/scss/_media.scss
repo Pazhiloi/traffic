@@ -152,13 +152,14 @@
     &__list{
       transform: translateY(-200%);
       position: absolute;
-      top: 140px;
+      top: 70px;
       width: 100%;
       left: 0;
       flex-direction: column;
       align-items: center;
       z-index: 5;
       transition: transform 0.5s ease;
+      background-color: $accent;
       &.menu__list--active{
         transform: translateY(0);
         transition: transform 0.5s ease;
