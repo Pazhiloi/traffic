@@ -34,6 +34,13 @@
     transform: translateX(0);
     bottom: 210px;
   }
+  &__image-reviews:first-child{
+    width: 300px;
+    left: -100px;
+  }
+  &__image-reviews:last-child{
+    width: 150px;
+  }
     &__content{
       padding-top: 0;
     }
@@ -76,6 +83,64 @@
     max-width: 500px;
     height: 300px;
   }
+  .results,
+  .reviews{
+    &__item{
+      img{
+      width: 400px;
+      height: 250px; 
+      }
+    }
+    &__next{
+      right: 0;
+    }
+    &__prev{
+      left: 0;
+    }
+      
+  }
+  .gallery{
+    &__bg-image:first-child{
+      width: 100px;
+      left: -50px;
+    }
+    &__bg-image:nth-child(2){
+      width: 50px;
+      right: 0;
+    }
+    &__bg-image:nth-child(3){
+      width: 150px;
+      left: 0;
+    }
+     &__bg-image:nth-child(4){
+      right: 0;
+    }
+     &__bg-image:nth-child(5),
+     &__bg-image:nth-child(6){
+      width: 100px;
+    }
+    &__bg-image:nth-child(6){
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .review{
+    &__item{
+      flex-wrap: wrap;
+    }
+    &__video,
+    &__content{
+      margin: 0 auto;
+    }
+    &__prev{
+      left: -30px;
+      top: 58%;
+    }
+     &__next{
+      right: -30px;
+      top: 65%;
+    }
+  }
 }
 @media(max-width: 1170px){
   .header{
@@ -114,6 +179,41 @@
      }
       &__btn{
       display: block;
+    }
+  }
+  .top{
+    &__image-faq:first-child{
+      width: 72px;
+      left: -20px;
+      bottom: 0;
+    }
+    &__image-faq:last-child{
+      width: 172px;
+      right: -50px;
+      bottom: 0;
+    }
+    &__image-about:nth-of-type(3),
+    &__image-about:nth-child(2){
+      width: 150px;
+    }
+    &__image-about:first-child,
+    &__image-about:last-child{
+      width: 50px;
+      bottom: 0;
+    }
+    &__image-about:nth-child(2){
+      left: -100px;
+    }
+    &__image-about:nth-of-type(3){
+      right: 40px;
+    }
+  }
+  .faq{
+    &__top{
+      padding: 40px 10px 0;
+    }
+    &__question{
+      margin-left: 10px;
     }
   }
   .industries{
@@ -184,6 +284,75 @@
       max-width: 100%;
     }
   }
+  .courses{
+    &__bg-image:nth-child(1){
+      width: 66px;
+      left: -20px;
+    }
+    &__bg-image:nth-child(2){
+      width: 72px;
+      right: -20px;
+    }
+    &__bg-image:nth-child(3){
+      width: 71px;
+      left: -40px;
+      bottom: 50%;
+    }
+    &__bg-image:nth-child(4){
+      width: 87px;
+      bottom: 0;
+      right: -30px;
+    }
+  }
+  .results,
+  .reviews{
+    &__item{
+      img{
+      width: 300px;
+      height: 200px; 
+      }
+    }
+      
+  }
+  .info{
+    &__inner{
+      display: block;
+    }
+    &__image,
+    &__content{
+      margin: 0 auto 30px;
+    }
+    &__content{
+      max-width: 100%;
+    }
+  }
+  .units{
+    &__items{
+    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: repeat(2, 1fr);
+    grid-row-gap: 50px
+    }
+    &__item{
+      margin: 0 auto;
+    }
+  }
+  .gallery{
+   &__bg-image:nth-child(3){
+     left: -80px;
+   }
+   &__bg-image:nth-child(4){
+     right: -90px;
+   }
+  }
+  .review{
+    .composition__bg-image:nth-child(7){
+      bottom: 0;
+    }
+    .composition__circle:nth-child(3),
+    .composition__circle:nth-child(4){
+      opacity: 0;
+    }
+  }
   .footer{
     &__inner{
       display: block;
@@ -198,6 +367,28 @@
 }
 
 @media(max-width: 770px){
+  .faq{
+    &__question{
+      font-size: 16px;
+    }
+    &__number{
+      width: 50px;
+      height: 50px;
+      span{
+        font-size: 16px;
+      }
+    }
+    &__svg-wrapper{
+      position: absolute;
+      right: 5px;
+      margin-left: 0;
+      width: 30px;
+      height: 30px;
+      svg{
+        width: 10px;
+      }
+    }
+  }
   .about{
     &__form,
     &__input{
@@ -211,11 +402,83 @@
     &__form{
       right: 40%;
     }
+    &__team{
+      &::before,
+      &::after{
+       display: none;
+      }
+    }
+    &__image{
+      position: absolute;
+    }
+    &__image:first-child{
+      width: 172px;
+      right: -90px;
+      bottom: 0;
+      position: absolute;
+    }
+    &__image:last-child{
+      width: 48px;
+      right: 70%;
+      transform: translateX(70%);
+    }
+     &__inner{
+     padding: 200px 0 50px;
+    }
+     &__title{
+       padding-top: 50px;
+      margin-bottom: 30px;
+      text-align: center;
+      &::after{
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &__team-info{
+      margin: -230px auto 0;
+    }
+    &__button{
+      width: 220px;
+      font-size: 14px;
+      margin: 0 auto;
+    }
+  }
+   .units{
+     padding: 60px 0 140px;
+    &__items{
+    grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: repeat(1, 1fr);
+    grid-row-gap: 50px
+    }
+    &__item{
+      margin: 0 auto;
+    }
+    &__circle:nth-child(1),
+    &__circle:nth-child(2),
+    &__circle:nth-child(3),
+    &__circle:nth-child(4){
+      opacity: 0;
+    }
+  }
+  .review{
+    &__image,
+    &__video{
+      width: 90%;
+      margin: 0 auto;
+    }
+    &__image{
+      height: 300px;
+    }
+    &__next{
+      top: 57%;
+    }
+    &__prev{
+      top: 46%;
+    }
   }
 }
 
-
-@media(max-width: 550px){
+@media(max-width: 610px){
   .title{
     font-size: 20px;
     padding-bottom: 20px;
@@ -241,6 +504,22 @@
       max-width: 220px;
       font-size: 14px;
     }
+    &__image-reviews:first-child{
+      width: 150px;
+      left: -50px;
+    }
+    &__image-reviews:nth-child(2){
+      left: 0;
+      bottom: 70px;
+    }
+    &__image-reviews:nth-of-type(3){
+      right: 0;
+      bottom: 70px;
+    }
+    &__image-reviews:last-child{
+      width: 150px;
+      right: -50px;
+    }
   }
   .subtitle{
     font-size: 12px;
@@ -257,6 +536,7 @@
     &__form{
       right: 20%;
     }
+
   }
   .video{
     max-width: 260px;
@@ -299,6 +579,93 @@
     &__form{
       max-width: 280px;
     }
+  }
+  .courses{
+    &__image{
+      position: relative;
+      top: -20px;
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 5px;
+    }
+    &__preview,
+    &__wrapper-image{
+      display: block;
+    }
+    &__preview,
+    &__wrapper{
+      max-width: 240px;
+      min-height: 140px;
+    }
+    &__wrapper-image{
+      padding-top: 0;
+    }
+    &__preview-title{
+      max-width: 147px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  .faq{
+    padding: 60px 0;
+    &__number{
+      width: 30px;
+      height: 30px;
+      span{
+        font-size: 14px;
+      }
+    }
+    &__question{
+      max-width: 100px;
+    }
+    &__text{
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .reviews,
+  .results{
+    &__next{
+      top: -10px;
+    }
+    &__prev{
+      top: unset;
+      bottom: 0;
+    }
+  }
+  .info{
+    padding: 60px 0;
+    &__text{
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .gallery{
+    &__inner{
+      padding-bottom: 60px;
+    }
+    &__text{
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .review{
+    &__text{
+      font-size: 14px;
+      line-height: 17px;
+    }
+    &__image{
+      height: 200px;
+    }
+    &__prev,
+    &__next{
+      top: -50px;
+    }
+    &__prev{
+      top: -110px;
+    }
+   
   }
   .footer{
     padding-bottom: 50px;
