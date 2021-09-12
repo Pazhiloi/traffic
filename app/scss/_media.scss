@@ -79,10 +79,6 @@
       font-size: 20px;
     }
   }
-  .video{
-    max-width: 500px;
-    height: 300px;
-  }
   .results,
   .reviews{
     &__item{
@@ -128,7 +124,6 @@
     &__item{
       flex-wrap: wrap;
     }
-    &__video,
     &__content{
       margin: 0 auto;
     }
@@ -140,6 +135,12 @@
       right: -30px;
       top: 65%;
     }
+    .iframe-wrapper{
+      margin: 0 auto 40px;
+    }
+  }
+  .iframe{
+    height: 400px;
   }
 }
 @media(max-width: 1170px){
@@ -152,7 +153,7 @@
     &__list{
       transform: translateY(-200%);
       position: absolute;
-      top: 70px;
+      top: 85px;
       width: 100%;
       left: 0;
       flex-direction: column;
@@ -244,12 +245,6 @@
       width: 180px;
     }
   }
-  .video{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 40px;
-  }
   .start{
     &__image{
       width: 118px;
@@ -304,6 +299,30 @@
       bottom: 0;
       right: -30px;
     }
+    &__list-wrapper{
+      display: block;
+      padding-left: 40px;
+    }
+    &__list-item{
+      margin-bottom: 10px;
+    }
+    &__wrapper.active{
+      min-height: 436px;
+    }
+    &__link{
+      font-size: 16px;
+      &::before{
+        top: 5px;
+      }
+    }
+  }
+  .cards{
+    grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: repeat(1, 1fr);
+    grid-row-gap: 10px;
+  }
+  .card{
+    margin: 0 auto;
   }
   .results,
   .reviews{
@@ -354,6 +373,13 @@
       opacity: 0;
     }
   }
+  .iframe-wrapper{
+    margin: 0 auto 40px;
+  }
+  .iframe{
+    max-width: 100%;
+    height: 456px;
+  }
   .footer{
     &__inner{
       display: block;
@@ -402,6 +428,7 @@
     }
     &__form{
       right: 40%;
+      top: 10px;
     }
     &__team{
       &::before,
@@ -459,22 +486,6 @@
     &__circle:nth-child(3),
     &__circle:nth-child(4){
       opacity: 0;
-    }
-  }
-  .review{
-    &__image,
-    &__video{
-      width: 90%;
-      margin: 0 auto;
-    }
-    &__image{
-      height: 300px;
-    }
-    &__next{
-      top: 57%;
-    }
-    &__prev{
-      top: 46%;
     }
   }
 }
@@ -539,10 +550,6 @@
     }
 
   }
-  .video{
-    max-width: 260px;
-    height: 147px;
-  }
   .composition{
     &__link{
       max-width: 220px;
@@ -573,7 +580,7 @@
     }
     &__item:last-child{
       position: relative;
-      left: 70%;
+      left: 30%;
     }
   }
   .start{
@@ -582,6 +589,7 @@
     }
   }
   .courses{
+    padding: 60px 0;
     &__image{
       position: relative;
       top: -20px;
@@ -606,6 +614,44 @@
       margin: 0 auto;
       font-size: 16px;
       line-height: 24px;
+    }
+    &__list-wrapper{
+      padding: 20px 0;
+      padding-left: 40px;
+    }
+  }
+  .card{
+    padding-bottom: 0;
+    min-height: 910px;
+    &__text{
+      font-size: 14px;
+      line-height: 17px;
+      max-width: 250px;
+      margin-bottom: 20px;
+    }
+    &__list-item{
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      &::before{
+        width: 7px;
+        height: 7px;
+        top: 4px;
+      }
+    }
+    &__button-download{
+      span{
+        font-size: 12px;
+        padding-left: 0;
+      }
+    }
+    &::before,
+    &::after{
+      display: none;
+    }
+    &__form-wrapper{
+      grid-template-columns: repeat(1, 1fr);
+      -ms-grid-columns: repeat(1, 1fr);
     }
   }
   .faq{
@@ -656,9 +702,6 @@
       font-size: 14px;
       line-height: 17px;
     }
-    &__image{
-      height: 200px;
-    }
     &__prev,
     &__next{
       top: -50px;
@@ -666,7 +709,28 @@
     &__prev{
       top: -110px;
     }
-   
+  }
+  .facebook{
+    width: 96px;
+  }
+  .google{
+    width: 67px;
+  }
+  .tiktok{
+    width: 78px;
+  }
+  .iframe-wrapper,
+  .iframe{
+    max-width: 260px;
+    height: 147px;
+  }
+  .iframe{
+    a:before {
+    left: 41%;
+    top: 36%;
+    width: 70px;
+    height: 70px;
+    }
   }
   .footer{
     padding-bottom: 50px;

@@ -36,6 +36,27 @@ $(function () {
     }
   ]
   });
+  $('.partners').slick({
+    slidesToShow: 7,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+    {
+      breakpoint: 1500,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 610,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    }
+  ]
+  });
   $('.review__slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -55,27 +76,53 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
       aboutForm = document.querySelector('.about__form'),
       coursesWrapper = document.querySelector('.courses__wrapper'),
       coursesListWrapper = document.querySelector('.courses__list-wrapper'),
-      accordeons = document.querySelectorAll('.courses__item'),
-      cardBtns = document.querySelectorAll('.card__button'),
-      cards = document.querySelector('.card'),
-      faqItems = document.querySelectorAll('.faq__item');
+      coursesPreview = document.querySelectorAll('.courses__preview'),
+      cardBtn = document.querySelectorAll('.card__button'),
+      faqItems = document.querySelectorAll('.faq__item'),
+      enterBtn = document.querySelector('.header__link'),
+      popup = document.querySelector('.popup');
+
+      cardBtn.forEach(btn => {
+        btn.addEventListener('click', () =>{
+          btn.classList.add('active');
+        })
+      });
+
+
+      coursesPreview.forEach(item => {
+        item.addEventListener('click', () =>{
+          item.classList.toggle('active');
+        })
+      });
+      enterBtn.addEventListener('click', (e) =>{
+        e.preventDefault();
+        openModal(popup);
+      } );
+
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+          closeModal(popup)
+        }
+      });
+       document.addEventListener('keydown', (e) => {
+        if (e.code === "Escape" && popup.classList.contains('active')) { 
+            closeModal(popup);
+        }
+    });
+      
+
+    function openModal(modalSelector) {
+      modalSelector.classList.add('active');
+    }
+    function closeModal(modalSelector) {
+      modalSelector.classList.remove('active');
+    }
+
       faqItems.forEach(item => {
         item.addEventListener('click', () => {
           item.classList.toggle('active');
         })
       });
-
-    //  cardBtns.forEach(btn => {
-    //   btn.addEventListener('click', () =>{
-    //     cards.classList.toggle('active');
-    //   })
-    //  });
-      accordeons.forEach(item => {
-        item.addEventListener('click', () =>{
-          item.classList.toggle('active');
-        })
-      });
-      
       menuBtn.addEventListener('click', () => {
         menuList.classList.toggle('menu__list--active')
       });
@@ -83,7 +130,6 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
         dropDownWrapper.classList.toggle('active');
         dropDownBtn.classList.toggle('active');
       });
-
       aboutBtn.addEventListener('click', () => {
         aboutForm.classList.add('active');
         aboutBtn.classList.add('hide');
@@ -96,6 +142,55 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
         coursesWrapper.classList.toggle('active');
         coursesListWrapper.classList.toggle('active');
       });
+    const signIn = document.querySelector('.sign-in-htm');
+    const signUp = document.querySelector('.sign-up-htm');
 
-    
+    signIn.addEventListener('submit', function(event){
+  event.preventDefault();  
+  const formData = {
+    'email': document.querySelector('.sign-in-htm .email').value,
+    'password': document.querySelector('.sign-in-htm .pass').value,
+    'isPermanent': document.querySelector('.sign-in-htm .check').value
+  };
+  const output = document.querySelector('.sign-in-htm .error-message');
+  const xhr = new XMLHttpRequest()
+  xhr.addEventListener('load', (e) => {
+    var data = JSON.parse(xhr.response);
+    if (data.error){
+      output.value = data.message;
+    }else{
+      let string = 'Пользователь ' + data.name + ' успешно авторизован';
+      output.value = string;
+    }
+  });
+  xhr.open('POST', 'https://neto-api.herokuapp.com/signin');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(formData));
+});
+
+signUp.addEventListener('submit', function(event){
+  event.preventDefault();  
+  const output = document.querySelector('.sign-up-htm .error-message');
+ 
+  const formData = {
+    'email': document.querySelector('.sign-up-htm [name="email"]').value,
+    'password':  document.querySelector('.sign-up-htm [name="password"]').value,
+    'passwordcopy':  document.querySelector('.sign-up-htm [name="passwordcopy"]').value,
+    'name': document.querySelector('.sign-up-htm [name="name"]').value
+  };    
+  const xhr = new XMLHttpRequest()
+  xhr.addEventListener('load', (e) => {
+    var data = JSON.parse(xhr.response);
+    if (data.error){
+      output.value = data.message;
+    }else{
+      let string = 'Пользователь ' + data.name + ' успешно зарегистрирован';
+      output.value = string;
+    }
+  });
+  xhr.open('POST', 'https://neto-api.herokuapp.com/signup');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(formData));
+  
+});
    });
