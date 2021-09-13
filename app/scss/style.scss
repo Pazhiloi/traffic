@@ -4,6 +4,9 @@
 @import 'libs';
 @import 'global';
 
+.login{
+  display: none;
+}
 .header{
   position: relative;
   @extend %main-grad;
@@ -62,7 +65,8 @@
   width: 122px;
   height: 30px;
 }
-.vacancies{
+.vacancies,
+.store{
   position: relative;
   cursor: pointer;
   &__title{
@@ -138,6 +142,18 @@
   }
   &__item:not(:last-child){
     margin-bottom: 15px;
+  }
+}
+.store{
+  &__wrapper{
+    bottom: -120px;
+  }
+  &__item{
+    text-align: center;
+    margin: 0 auto;
+  }
+  &__wrapper.active{
+    min-height: 104px;
   }
 }
 .top{
@@ -357,6 +373,12 @@
   }
   &__info-title{
     margin-bottom: 30px;
+  }
+  &__info-text{
+    margin-bottom: 10px;
+  }
+  &__info-text--bold{
+    @extend %montserrat-700;
   }
 }
 .facebook,
@@ -915,6 +937,45 @@
     margin: 0 auto;
   }
 }
+
+.info{
+  padding: 110px 0 130px;
+  &__inner{
+    @extend %df;
+  }
+  &__image{
+    width: 716px;
+  }
+  &__content{
+    max-width: 659px;
+    width: 100%;
+  }
+  &__title{
+    margin-bottom: 30px;
+  }
+}
+.composition,
+.info{
+ &__list{
+    margin: 15px 0;
+  }
+  &__item,
+  &__list-item{
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+  }
+}
 .faq{
   padding: 120px 0 140px;
   position: relative;
@@ -989,6 +1050,9 @@
     opacity: 0;
     transition: opacity 0.5s ease;
   }
+  &__text--padding{
+    padding: 10px 50px 10px;
+  }
   &__item.active{
     max-height: 2000px;
     box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
@@ -1028,23 +1092,21 @@
   &__circle:nth-child(2){
     right: 10%;
   }
-}
-.info{
-  padding: 110px 0 130px;
-  &__inner{
-    @extend %df;
+  &__list-item{
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #000;
+    }
   }
-  &__image{
-    width: 716px;
-  }
-  &__content{
-    max-width: 659px;
-    width: 100%;
-  }
-  &__title{
-    margin-bottom: 30px;
-  }
-
 }
 .gallery{
   position: relative;
@@ -1331,6 +1393,10 @@
   }
   &__tel{
     @extend %montserrat-700;
+    transition: color 0.5s ease;
+    &:hover{
+      color: $accent;
+    }
   }
   &__tel:not(:first-child){
     margin-left: 100px;

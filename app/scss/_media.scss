@@ -144,6 +144,9 @@
   }
 }
 @media(max-width: 1170px){
+  .login{
+  display: block;
+}
   .header{
     &__link{
       display: none;
@@ -709,6 +712,9 @@
     &__prev{
       top: -110px;
     }
+    &__next{
+      right: -55px;
+    }
   }
   .facebook{
     width: 96px;
@@ -721,8 +727,8 @@
   }
   .iframe-wrapper,
   .iframe{
-    max-width: 260px;
-    height: 147px;
+    max-width: 320px;
+    height: 200px;
   }
   .iframe{
     a:before {
@@ -730,6 +736,14 @@
     top: 36%;
     width: 70px;
     height: 70px;
+    }
+  }
+  .login-html{
+    padding: 40px 10px 0px 10px;
+    .tab,
+    .button,
+    .input{
+      font-size: 14px;
     }
   }
   .footer{

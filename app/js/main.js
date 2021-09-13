@@ -68,6 +68,8 @@ $(function () {
 });
 window.addEventListener('DOMContentLoaded', () => {
 const dropDownBtn = document.querySelector('.vacancies__title'),
+      store = document.querySelector('.store'),
+      storeWrapper = document.querySelector('.store__wrapper'),
       dropDownWrapper = document.querySelector('.vacancies__wrapper'),
       menuBtn = document.querySelector('.menu__btn'),
       menuList = document.querySelector('.menu__list'),
@@ -80,7 +82,13 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
       cardBtn = document.querySelectorAll('.card__button'),
       faqItems = document.querySelectorAll('.faq__item'),
       enterBtn = document.querySelector('.header__link'),
+      loginBtn = document.querySelector('.login'),
       popup = document.querySelector('.popup');
+
+      store.addEventListener('click', () =>{
+        storeWrapper.classList.toggle('active');
+      });
+
 
       cardBtn.forEach(btn => {
         btn.addEventListener('click', () =>{
@@ -94,6 +102,12 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
           item.classList.toggle('active');
         })
       });
+
+      loginBtn.addEventListener('click', (e) =>{
+        e.preventDefault();
+        openModal(popup);
+      } );
+
       enterBtn.addEventListener('click', (e) =>{
         e.preventDefault();
         openModal(popup);
