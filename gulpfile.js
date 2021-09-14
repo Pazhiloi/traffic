@@ -52,7 +52,7 @@ function images(params) {
             { removeViewBox: true },
             { cleanupIDs: false }
              ]
-    })
+    })  
   ]))
   .pipe(dest('dist/images'))
 }

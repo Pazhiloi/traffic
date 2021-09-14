@@ -1,6 +1,6 @@
 window.onscroll = function showHeader() {
     const header = document.querySelector('.header__inner');
-    if(window.pageYOffset > 200) {
+    if(window.scrollY > 200) {
       header.classList.add('header__fixed');
     } else{
       header.classList.remove('header__fixed');
@@ -83,7 +83,43 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
       faqItems = document.querySelectorAll('.faq__item'),
       enterBtn = document.querySelector('.header__link'),
       loginBtn = document.querySelector('.login'),
-      popup = document.querySelector('.popup');
+      popup = document.querySelector('.popup'),
+      lazyImages = document.querySelectorAll('img[data-src]'),
+      windowHeight = document.documentElement.clientHeight;
+
+      let lazyImagesPosition = [];
+
+      if (lazyImages.length > 0) {
+        lazyImages.forEach(img => {
+          if (img.dataset.src) {
+            lazyImagesPosition.push(img.getBoundingClientRect().top + scrollY);
+            lazyScrollCheck();
+          }
+        });
+      }
+
+      window.addEventListener('scroll', lazyScroll);
+
+      function lazyScroll() {
+        if (document.querySelectorAll('img[data-src]').length > 0) {
+          lazyScrollCheck();
+        }
+      }
+
+      function lazyScrollCheck() {
+        let imgIndex = lazyImagesPosition.findIndex(
+          item => scrollY > item - windowHeight
+        );
+        if (imgIndex >= 0) {
+          if (lazyImages[imgIndex].dataset.src) {
+            lazyImages[imgIndex].src = lazyImages[imgIndex].dataset.src;
+            lazyImages[imgIndex].removeAttribute('data-src');
+          } 
+          delete lazyImagesPosition[imgIndex];
+        }
+      }
+
+     
 
       store.addEventListener('click', () =>{
         storeWrapper.classList.toggle('active');
