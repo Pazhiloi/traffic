@@ -144,6 +144,10 @@
   }
 }
 @media(max-width: 1170px){
+  .popup-log.active,
+  .popup-reg.active{
+    display: none;
+  }
   .login{
   display: block;
 }
@@ -312,12 +316,14 @@
     &__wrapper.active{
       min-height: 436px;
     }
-    &__link{
+    &__link,
+    &__list-item{
       font-size: 16px;
       &::before{
         top: 5px;
       }
     }
+    
   }
   .cards{
     grid-template-columns: repeat(1, 1fr);
@@ -622,6 +628,9 @@
       padding: 20px 0;
       padding-left: 40px;
     }
+    &__list-wrapper.active{
+      display: block;
+    }
   }
   .card{
     padding-bottom: 0;
@@ -736,14 +745,6 @@
     top: 36%;
     width: 70px;
     height: 70px;
-    }
-  }
-  .login-html{
-    padding: 40px 10px 0px 10px;
-    .tab,
-    .button,
-    .input{
-      font-size: 14px;
     }
   }
   .footer{

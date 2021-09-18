@@ -81,13 +81,19 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
       coursesPreview = document.querySelectorAll('.courses__preview'),
       cardBtn = document.querySelectorAll('.card__button'),
       faqItems = document.querySelectorAll('.faq__item'),
-      enterBtn = document.querySelector('.header__link'),
-      loginBtn = document.querySelector('.login'),
-      popup = document.querySelector('.popup'),
+      enter = document.querySelectorAll('.enter'),
+      signup = document.querySelectorAll('.top__button'),
+      popupLog = document.querySelector('.popup-log'),
+      popupReg = document.querySelector('.popup-reg'),
       lazyImages = document.querySelectorAll('img[data-src]'),
       windowHeight = document.documentElement.clientHeight;
 
-      let lazyImagesPosition = [];
+
+
+       store.addEventListener('click', () =>{
+        storeWrapper.classList.toggle('active');
+      });
+       let lazyImagesPosition = [];
 
       if (lazyImages.length > 0) {
         lazyImages.forEach(img => {
@@ -117,62 +123,13 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
           } 
           delete lazyImagesPosition[imgIndex];
         }
-      }
-
-     
-
-      store.addEventListener('click', () =>{
-        storeWrapper.classList.toggle('active');
-      });
-
-
-      cardBtn.forEach(btn => {
+      };
+       cardBtn.forEach(btn => {
         btn.addEventListener('click', () =>{
           btn.classList.add('active');
         })
       });
-
-
-      coursesPreview.forEach(item => {
-        item.addEventListener('click', () =>{
-          item.classList.toggle('active');
-        })
-      });
-
-      loginBtn.addEventListener('click', (e) =>{
-        e.preventDefault();
-        openModal(popup);
-      } );
-
-      enterBtn.addEventListener('click', (e) =>{
-        e.preventDefault();
-        openModal(popup);
-      } );
-
-      popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
-          closeModal(popup)
-        }
-      });
-       document.addEventListener('keydown', (e) => {
-        if (e.code === "Escape" && popup.classList.contains('active')) { 
-            closeModal(popup);
-        }
-    });
-      
-
-    function openModal(modalSelector) {
-      modalSelector.classList.add('active');
-    }
-    function closeModal(modalSelector) {
-      modalSelector.classList.remove('active');
-    }
-
-      faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-          item.classList.toggle('active');
-        })
-      });
+     
       menuBtn.addEventListener('click', () => {
         menuList.classList.toggle('menu__list--active')
       });
@@ -180,67 +137,72 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
         dropDownWrapper.classList.toggle('active');
         dropDownBtn.classList.toggle('active');
       });
-      aboutBtn.addEventListener('click', () => {
-        aboutForm.classList.add('active');
-        aboutBtn.classList.add('hide');
-      });
-      aboutFormBtn.addEventListener('click', () => {
-        aboutForm.classList.remove('active');
-        aboutBtn.classList.remove('hide');
+      
+     coursesPreview.forEach(item => {
+        item.addEventListener('click', () =>{
+          item.classList.toggle('active');
+        })
       });
       coursesWrapper.addEventListener('click', () => {
         coursesWrapper.classList.toggle('active');
         coursesListWrapper.classList.toggle('active');
       });
-    const signIn = document.querySelector('.sign-in-htm');
-    const signUp = document.querySelector('.sign-up-htm');
-
-    signIn.addEventListener('submit', function(event){
-  event.preventDefault();  
-  const formData = {
-    'email': document.querySelector('.sign-in-htm .email').value,
-    'password': document.querySelector('.sign-in-htm .pass').value,
-    'isPermanent': document.querySelector('.sign-in-htm .check').value
-  };
-  const output = document.querySelector('.sign-in-htm .error-message');
-  const xhr = new XMLHttpRequest()
-  xhr.addEventListener('load', (e) => {
-    var data = JSON.parse(xhr.response);
-    if (data.error){
-      output.value = data.message;
-    }else{
-      let string = 'Пользователь ' + data.name + ' успешно авторизован';
-      output.value = string;
-    }
-  });
-  xhr.open('POST', 'https://neto-api.herokuapp.com/signin');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify(formData));
-});
-
-signUp.addEventListener('submit', function(event){
-  event.preventDefault();  
-  const output = document.querySelector('.sign-up-htm .error-message');
- 
-  const formData = {
-    'email': document.querySelector('.sign-up-htm [name="email"]').value,
-    'password':  document.querySelector('.sign-up-htm [name="password"]').value,
-    'passwordcopy':  document.querySelector('.sign-up-htm [name="passwordcopy"]').value,
-    'name': document.querySelector('.sign-up-htm [name="name"]').value
-  };    
-  const xhr = new XMLHttpRequest()
-  xhr.addEventListener('load', (e) => {
-    var data = JSON.parse(xhr.response);
-    if (data.error){
-      output.value = data.message;
-    }else{
-      let string = 'Пользователь ' + data.name + ' успешно зарегистрирован';
-      output.value = string;
-    }
-  });
-  xhr.open('POST', 'https://neto-api.herokuapp.com/signup');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify(formData));
+       faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('active');
+        })
+      });
+      
+      try{
+        aboutBtn.addEventListener('click', () => {
+        aboutForm.classList.add('active');
+        aboutBtn.classList.add('hide');
+      });
   
-});
+      aboutFormBtn.addEventListener('click', () => {
+        aboutForm.classList.remove('active');
+        aboutBtn.classList.remove('hide');
+      });
+        
+      enter.forEach(enterBtn => {
+         enterBtn.addEventListener('click', (e) =>{
+         e.preventDefault();
+         openModal(popupLog);
+       } );
+      });
+
+      signup.forEach(signupBtn => {
+        signupBtn.addEventListener('click', (e) =>{
+         e.preventDefault();
+         openModal(popupReg);
+         ;
+       } );
+      });
+       function closeModalListener(selector) {
+         selector.addEventListener('click', (e) => {
+           if (e.target === selector) {
+             closeModal(selector);
+           }
+         });
+          document.addEventListener('keydown', (e) => {
+          if (e.code === "Escape" && selector.classList.contains('active')) { 
+            closeModal(selector);
+           }
+        });
+       }
+       closeModalListener(popupLog);
+       closeModalListener(popupReg);
+      
+     function openModal(modalSelector) {
+       modalSelector.classList.add('active');
+       document.body.style.overflow = 'hidden';
+     }
+     function closeModal(modalSelector) {
+       modalSelector.classList.remove('active');
+       document.body.style.overflow = '';
+     }
+      
+      }catch {console.log('error')}
+
+      
    });

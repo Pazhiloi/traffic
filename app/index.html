@@ -33,7 +33,7 @@
           <li class="menu__item">
             <a class="menu__link" href="faq.html">FAQ</a>
           </li>
-          <li class="menu__item login">
+          <li class="menu__item login enter">
             <a class="menu__link" href="#">Вход</a>
           </li>
           <li class="menu__item store">
@@ -77,7 +77,7 @@
           <img data-src="images/content/burger.png" alt="menu burger" src="images/placeholder.png">
         </button>
       </nav>
-      <a class="header__link" href="#">Вход в обучение</a>
+      <a class="header__link enter" href="#">Вход в обучение</a>
     </div>
   </div>
     <section class="top">
@@ -119,7 +119,6 @@
 </header>
 
  <main class="main">
-
   <section class="about">
      <div class="partners">
        <div class="partners__item">
@@ -232,7 +231,7 @@
         </div>
       </div>
     </div>
-      <div class="courses" id="courses"> 
+    <div class="courses" id="courses"> 
       <div class="courses__circles">
         <div class="courses__circle circle"></div>
         <div class="courses__circle circle"></div>
@@ -628,15 +627,16 @@
                 </div>
                 <div class="courses__list-wrapper">
                   <ul class="courses__list">
-                    <li class="courses__list-item"><a class="courses__link" href="#">Франшиза Arbitrage Up</a></li>
-                    <li class="courses__list-item"><a class="courses__link" href="#">Команда под ключ от Азира Годжатова</a></li>
-                    <li class="courses__list-item"><a class="courses__link" href="#">Фарминг Google и Facebook</a></li>
-                    <li class="courses__list-item"><a class="courses__link" href="#">Креативы</a></li>
+                    <li class="courses__list-item">Франшиза Arbitrage Up</li>
+                    <li class="courses__list-item">Команда под ключ от Азира Годжатова</li>
+                    <li class="courses__list-item">Фарминг Google и Facebook</li>
+                    <li class="courses__list-item">Креативы</li>
                   </ul>
                   <ul class="courses__list">
-                    <li class="courses__list-item"><a class="courses__link" href="#">Связки</a></li>
+                    <li class="courses__list-item">Связки</li>
                     <li class="courses__list-item"><a class="courses__link" href="https://arbitrage-up.ru/">Магазин аккаунтов</a></li>
-                    <li class="courses__list-item"><a class="courses__link" href="#">Аренда приложений</a></li>
+                    <li class="courses__list-item">
+                      Аренда приложений</li>
                   </ul>
                 </div>
               </div>
@@ -757,60 +757,51 @@
   </div>
 
 </footer>
-<div class="popup">
-<div class="login-wrap">
-  <div class="login-html">
-    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Вход</label>
-    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Регистрация</label>
-    <div class="login-form">
-      <form class="sign-in-htm">
-        <div class="group">
-          <label for="email" class="label">Электронный адрес</label>
-          <input  name="email" type="email" class="input">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">Пароль</label>
-          <input  name="password" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <input type="hidden" name="isPermanent" value="0">
-          <input id="check" name="isPermanent" value="1" type="checkbox" class="check" checked>
-          <label for="check"><span class="icon"></span> Запомнить меня</label>
-        </div>
-        <div class="group">
-          <input type="submit" class="button" value="Войти">
-        </div>
-        <output class="error-message"></output>
-      </form>
-      <form class="sign-up-htm">
-        <div class="group">
-          <label for="email" class="label">Электронный адрес</label>
-          <input  name="email" type="email" class="input">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">Пароль</label>
-          <input  name="password" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">Пароль еще раз</label>
-          <input  name="passwordcopy" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">Имя</label>
-          <input  name="name" type="text" class="input">
-        </div>
-        <div class="group">
-          <input type="submit" class="button" value="Зарегистрироваться">
-        </div>
-        <output class="error-message"></output>
-        <div class="hr"></div>
-        <div class="foot-lnk">
-          <label for="tab-1"><a>Уже зарегистрированы?</a></label>
-        </div>
-      </form>
+
+ <div class="popup-log popup ">
+  <form action="#" class="popup__form">
+    <div class="popup__top">
+      <div class="popup__top-title">
+        вход в обучение
+      </div>
     </div>
-  </div>
-</div>
+    <div class="popup__content">
+      <div class="popup__title">
+        lorem ipsum dolor
+      </div>
+      <p class="popup__text">
+        Lorem ipsum dolor im consectetur amor lorem
+        ipsum dolor im consectetur amor
+      </p>
+      <input class="popup__input" type="text" placeholder="Введите свой логин">
+      <input class="popup__input" type="password" placeholder="Введите свой пароль">
+      <button class="popup__button" type="submit">войти</button>
+    </div>
+    
+  </form>
+</div> 
+  <div class="popup-reg popup">
+  <form action="#" class="popup__form">
+    <div class="popup__top">
+      <div class="popup__top-title">
+        Записаться на курс
+      </div>
+    </div>
+    <div class="popup__content popup-reg__content">
+      <div class="popup__title">
+        lorem ipsum dolor
+      </div>
+      <p class="popup__text">
+        Lorem ipsum dolor im consectetur amor lorem
+        ipsum dolor im consectetur amor
+      </p>
+      <input class="popup__input" type="text" placeholder="Ваше имя">
+      <input class="popup__input" type="text" placeholder="Электронная почта">
+      <input class="popup__input" type="text" placeholder="Ваш телеграмм">
+      <button class="popup__button" type="submit">записаться</button>
+    </div>
+    
+  </form>
 </div>
 
 
