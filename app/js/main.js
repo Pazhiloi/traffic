@@ -16,46 +16,7 @@ $(function () {
     centerPadding: '0px', 
      prevArrow:'<button type="button" class="results__prev"><svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM4 10.5L2 10.5L2 13.5L4 13.5L4 10.5Z" fill="white" /></svg></button>',
     nextArrow: '<button type="button" class="results__next"><svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM4 10.5L2 10.5L2 13.5L4 13.5L4 10.5Z"fill="white" /></svg></button>',
-    infinite: false,
-    responsive: [
-    {
-      breakpoint: 770,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        centerMode: false
-      }
-    },
-    {
-      breakpoint: 610,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        centerMode: false
-      }
-    }
-  ]
-  });
-  $('.partners').slick({
-    slidesToShow: 7,
-    slidesToScroll: 1,
-    arrows: false,
-    responsive: [
-    {
-      breakpoint: 1500,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 610,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    }
-  ]
+    infinite: false
   });
   $('.review__slider').slick({
     slidesToShow: 1,
@@ -82,7 +43,7 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
       cardBtn = document.querySelectorAll('.card__button'),
       faqItems = document.querySelectorAll('.faq__item'),
       enter = document.querySelectorAll('.enter'),
-      signup = document.querySelectorAll('.top__button'),
+      signup = document.querySelector('.top__button'),
       popupLog = document.querySelector('.popup-log'),
       popupReg = document.querySelector('.popup-reg'),
       lazyImages = document.querySelectorAll('img[data-src]'),
@@ -123,8 +84,14 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
           } 
           delete lazyImagesPosition[imgIndex];
         }
-      };
-       cardBtn.forEach(btn => {
+      };   
+       faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('active');
+        })
+      });  
+      try{
+         cardBtn.forEach(btn => {
         btn.addEventListener('click', () =>{
           btn.classList.add('active');
         })
@@ -143,17 +110,11 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
           item.classList.toggle('active');
         })
       });
-      coursesWrapper.addEventListener('click', () => {
+         coursesWrapper.addEventListener('click', () => {
         coursesWrapper.classList.toggle('active');
         coursesListWrapper.classList.toggle('active');
       });
-       faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-          item.classList.toggle('active');
-        })
-      });
       
-      try{
         aboutBtn.addEventListener('click', () => {
         aboutForm.classList.add('active');
         aboutBtn.classList.add('hide');
@@ -170,14 +131,12 @@ const dropDownBtn = document.querySelector('.vacancies__title'),
          openModal(popupLog);
        } );
       });
-
-      signup.forEach(signupBtn => {
-        signupBtn.addEventListener('click', (e) =>{
+        signup.addEventListener('click', (e) =>{
          e.preventDefault();
          openModal(popupReg);
          ;
        } );
-      });
+      
        function closeModalListener(selector) {
          selector.addEventListener('click', (e) => {
            if (e.target === selector) {

@@ -168,15 +168,22 @@
     min-height: 104px;
   }
 }
-.top{
+.top-faq{
   overflow: hidden;
+}
+.top{
   padding: 50px 0 25px;
   &__inner{
     position: relative;
   }
   &__content{
+    position: relative;
+    z-index: 2;
     padding-top: 40px;
     padding-bottom: 60px;
+  }
+  &__content--signup{
+    padding: 0;
   }
   &__title{
     text-transform: uppercase;
@@ -213,7 +220,8 @@
   &__image-faq,
   &__image-about,
   &__image-reviews,
-  &__image-courses{
+  &__image-courses,
+  &__image-signup{
     position: absolute;
   }
   &__image:first-child{
@@ -224,13 +232,13 @@
   &__image:nth-child(2){
     width: 390px;
     left: 0;
-    bottom: -70px;
+    bottom: -90px;
   }
   &__image:nth-of-type(3){
-    width: 118px;
-    right: 30%;
-    transform: translateX(30%);
-    bottom: -60px;
+    width: 160px;
+    right: 19%;
+    transform: translateX(19%);
+    bottom: -85px;
   }
   &__image:last-child{
     width: 232px;
@@ -245,18 +253,18 @@
   }
   &__image-faq:last-child{
     width: 365px;
-    right: -140px;
-    bottom: -25px;
+    right: 0;
+    top: 0;
   }
   &__image-about:first-child{
     width: 110px;
-    left: 0;
-    bottom: -50px;
+    left: -35px;
+    bottom: -70px;
   }
   &__image-about:nth-child(2){
     width: 352px;
     left: 100px;
-    top: -45px;
+    top: -30px;
   }
   &__image-about:nth-of-type(3){
     width: 289px;
@@ -292,13 +300,13 @@
   }
   &__image-courses:first-child{
     width: 92px;
-    left: 20%;
+    left: 13%;
     bottom: 0;
     transform: rotate(-50deg);
   }
   &__image-courses:nth-of-type(2){
     width: 226px;
-    right: 19%;
+    right: 12%;
     bottom: 25px;
   }
   &__image-courses:last-child{
@@ -306,8 +314,20 @@
     right: -220px;
     bottom: -120px;
   }
+  &__image-signup:first-child{
+    left: 0;
+    top: -30px;
+    width: 100px;
+  }
+  &__image-signup:last-child{
+    bottom: -55px;
+    right: 0;
+    width: 73px;
+    transform: rotate(-30deg);
+  }
 }
 .about{
+  position: relative;
   &__team{
     overflow: hidden;
     @extend %main-grad;
@@ -321,8 +341,8 @@
     }
     &::before{
       background-image: url('../images/bg/doodle.png');
-      left: 0;
-      bottom: -100px;
+      left: -5px;
+      bottom: -85px;
       width: 400px;
       height: 400px;
     }
@@ -331,15 +351,17 @@
       width: 259px;
       height: 259px;
       right: 0;
-      top: 0;
+      top: -40px;
     }
   }
   &__inner{
-    padding-top: 150px;
+    padding-top: 100px;
     @extend %df;
+    position: relative;
   }
   &__team-info{
-    margin-top: -230px;
+    margin-top: -70px;
+    padding-left: 60px;
   }
   &__title{
     margin-bottom: 40px;
@@ -371,7 +393,7 @@
     transform: translateX(0);
   }
   &__button.hide{
-    opacity: 0;
+    display: none;
   }
   &__form-button{
     width: 173px;
@@ -381,18 +403,38 @@
   &__input:not(:first-child){
     margin-left: 50px;
   }
+  &__image--woman{
+    width: 480px;
+    margin-bottom: -150px;
+  }
   &__image:last-child{
     position: absolute;
     right: -220px;
     bottom: 0;
     width: 126px;
+    transform: rotate(-40deg);
   }
   &__content{
     padding: 120px 0 120px;
     position: relative;
+  //    &::before,
+  // &::after{
+  //   content: '';
+  //   position: absolute;
+  //   background-image: url('../images/bg-circle-1.png');
+  //   background-repeat: no-repeat;
+  // }
+  // &::after{
+  //   right: 0;
+  //   top: 0;
+  //   width: 1226px;
+  //   height: 1235px;
+  // }
+
   }
   &__wrapper{
-    @extend %df;
+    @extend %dfc;
+
   }
   &__info{
     max-width: 660px;
@@ -425,17 +467,19 @@
 }
 .partners{
   padding: 90px 0;
-  &__item{
-    display: flex!important;
-    justify-content: center;
-    align-items: center;
+  @extend %dfc;
+  justify-content: center;
+  &__wrapper{
+    @extend %dfc;
+    margin-left: 100px;
+  }
+  
+  &__item:not(:first-child),
+  &__wrapper:not(:first-child){
+    margin-left: 100px;
   }
   &__image{
     margin: 0 auto;
-  }
-  .slick-track{
-    display: flex;
-    align-items: center;
   }
 }
 .industries{
@@ -447,10 +491,10 @@
     margin-bottom: 60px;
     text-transform: uppercase;
   }
-  &__items{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    -ms-grid-columns: repeat(5, 1fr);
+  &__items,
+  &__wrapper{
+    display: flex;
+    justify-content: center;
   }
   &__item{
     margin: 0 auto;
@@ -460,6 +504,10 @@
       font-size: 24px;
       text-transform: uppercase;
     }
+  }
+  &__item:not(:first-child),
+  &__wrapper:not(:first-child){
+    margin-left: 140px;
   }
   &__img-wrapper{
     display: flex;
@@ -677,10 +725,10 @@
   }
   &__bg-image:nth-child(3){
     bottom: -70px;
-    left: 0;
+    left: 45px;
   }
   &__bg-image:last-child{
-    bottom: -50px;
+    bottom: -60px;
     right: 5%;
   }
   &__bg-image--position:first-child{
@@ -688,6 +736,9 @@
   }
   &__bg-image--position:nth-child(2){
     right: 8%;
+  }
+  &__bg-image--faq:nth-child(2){
+    right: 10%;
   }
 &__circle{
   position: absolute;
@@ -732,6 +783,20 @@
 &__circle--position:first-child,
 &__circle--position:nth-child(2){
   display: none;
+}
+&__circle--position:nth-child(3){
+  left: 3%;
+  top: 34%;
+}
+&__circle--position:nth-child(5){
+  left: 2%;
+  top: 60%;
+}
+&__circle--position:last-child{
+  right: 2%;
+  top: 66%;
+  width: 33px;
+  height: 33px;
 }
   &__title{
     margin-bottom: 65px;
@@ -851,6 +916,7 @@
 }
 .videos{
   padding-top: 120px;
+  padding-bottom: 140px;
   position: relative;
   &__items{
     display: grid;
@@ -860,6 +926,8 @@
     grid-row-gap: 50px;
   }
   &__item{
+    position: relative;
+    z-index: 4;
     max-width: 450px;
     width: 100%;
     min-height: 350px;
@@ -933,7 +1001,12 @@
   @extend %main-grad;
   &__inner{
     padding: 50px 0;
-    @extend %df;
+    @extend %dfc;
+    justify-content: center;
+  }
+  &__content{
+    position: relative;
+    z-index: 2;
   }
   &__title{
     margin-bottom: 40px;
@@ -961,7 +1034,7 @@
   }
   &__image{
     width: 329px;
-    height: 329px;
+    margin-left: 170px;
   }
 }
 .composition{
@@ -988,10 +1061,12 @@
     background-color: transparent;
   }
   &__channel{
-    overflow: hidden;
     @extend %main-grad;
     padding: 100px 0;
     position: relative;
+  }
+  &__inner{
+    z-index: 4;
   }
   &__circle,
   &__bg-image{
@@ -1029,15 +1104,15 @@
     left: 0;
   }
   &__bg-image:nth-child(6){
-    width: 200px;
-    top: 0;
+    width: 286px;
+    top: -100px;
     right: 0;
   }
   &__bg-image:nth-child(7){
     width: 126px;
-    bottom: 0;
+    bottom: -35px;
     left: 10%;
-    transform: translateX(-10%);
+    transform: translateX(-10%) rotate(-50deg);
   }
   &__bg-image:nth-child(8){
     width: 156px;
@@ -1068,10 +1143,12 @@
 .info{
   padding: 110px 0 130px;
   &__inner{
-    @extend %df;
+    @extend %dfc;
+    justify-content: center;
   }
   &__image{
     width: 716px;
+    margin-right: 200px;
   }
   &__content{
     max-width: 659px;
@@ -1106,7 +1183,6 @@
 .faq{
   padding: 120px 0 140px;
   position: relative;
-  overflow: hidden;
   &__item{
     position: relative;
     max-width: 1200px;
@@ -1133,6 +1209,11 @@
     &:hover::before{
       opacity: 1;
       box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &__item:hover{
+    .faq__number{
+      background-color: $accent;
     }
   }
   &__item:not(:last-child){
@@ -1175,7 +1256,8 @@
     padding: 50px 50px 60px;
     line-height: 1.4;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, display 0.5s ease;
+    display: none;
   }
   &__text--padding{
     padding: 10px 50px 10px;
@@ -1185,6 +1267,7 @@
     box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.2);
     .faq__text{
       opacity: 1;
+      display: block;
     }
     .faq__svg-wrapper{
       &::before{
@@ -1272,9 +1355,9 @@
     position: absolute;
   }
   &__bg-image:first-child{
-    width: 280px;
-    left: -160px;
-    top: 0;
+    width: 380px;
+    left: -240px;
+    top: -100px;
   }
   &__bg-image:nth-child(2){
     width: 104px;
@@ -1304,6 +1387,71 @@
     bottom: -70px;
     right: -190px;
     transform: rotate(-40deg);
+  }
+}
+.signup,
+.signin{
+  overflow: hidden;
+  padding: 50px 0;
+  &__content,
+  &__form{
+  position: relative;
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+    @extend %main-grad;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+  }
+  &::before{
+    width: 118px;
+    height: 118px;
+    bottom: 0;
+    left: -90px;
+  }
+  &::after{
+    width: 55px;
+    height: 55px;
+    bottom: -60px;
+    right: 10px;
+  }
+  }
+  &__form{
+    &::before{
+      width: 30px;
+      height: 30px;
+      bottom: unset;
+      top: -35px;
+      left: 45px;
+    }
+    &::after{
+      width: 73px;
+      height: 73px;
+      bottom: unset;
+      top: 40px;
+      right: -40px;      
+    }
+  }
+  
+  &__title{
+    @extend %montserrat-700;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .popup__text{
+    font-size: 14px;
+    max-width: 297px;
+    margin: 0 auto 30px;
+  }
+  .popup__input{
+    max-width: 280px;
+    margin-bottom: 20px;
+  }
+  .popup__button{
+    max-width: 220px;
   }
 }
 .units{
@@ -1515,9 +1663,9 @@
 
 .iframe-wrapper,
 .iframe{
-  max-width: 808px;
+  max-width: 900px;
   width: 100%;
-  height: 456px;
+  height: 550px;
   border-radius: 40px;
   border: 0;
 }
