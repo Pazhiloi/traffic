@@ -517,6 +517,11 @@
     -ms-grid-columns: repeat(2, 1fr);
     }
   }
+  .store{
+    &__wrapper{
+      z-index: 3;
+    }
+  }
 }
 
 @media(max-width: 770px){
@@ -776,6 +781,13 @@
   .about{
     &__content{
       padding: 60px 0 60px;
+      &::before{
+        bottom: -400px;
+        left: -500px;
+      }
+      &::after{
+        right: 0;
+      }
     }
     &__info-text{
       font-size: 14px;
@@ -996,11 +1008,12 @@
       right: -55px;
     }
   }
-  
   .iframe-wrapper,
   .iframe{
-    max-width: 320px;
+    width: 380px;
     height: 200px;
+    position: relative;
+    right: 7.5px;
   }
   .iframe{
     a:before {
@@ -1009,6 +1022,7 @@
     width: 70px;
     height: 70px;
     }
+    right: 18px;
   }
   .videos{
     padding: 50px 0 200px;

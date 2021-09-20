@@ -354,6 +354,21 @@
     transform: rotate(-30deg);
   }
 }
+.about,
+.composition{
+  &__content{
+    position: relative;
+    &::before,
+    &::after{
+    content: '';
+    position: absolute;
+    background-image: url('../images/bg-circle-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+  }
+}
 .about{
   position: relative;
   &__team{
@@ -443,21 +458,22 @@
     transform: rotate(-40deg);
   }
   &__content{
+    overflow: hidden;
     padding: 120px 0 120px;
     position: relative;
-  //    &::before,
-  // &::after{
-  //   content: '';
-  //   position: absolute;
-  //   background-image: url('../images/bg-circle-1.png');
-  //   background-repeat: no-repeat;
-  // }
-  // &::after{
-  //   right: 0;
-  //   top: 0;
-  //   width: 1226px;
-  //   height: 1235px;
-  // }
+ 
+  &::before{
+    width: 613px;
+    height: 618px;
+    bottom: -300px;
+    left: -300px;
+  }
+  &::after{
+    right: 0;
+    top: 0;
+    width: 1226px;
+    height: 1226px;
+  }
 
   }
   &__wrapper{
@@ -1070,6 +1086,18 @@
   &__content{
     padding: 120px 0;
     background-color: #fff;
+    &::before{
+      width: 1226px;
+      height: 1226px;
+      top: 0;
+      left: -400px;
+    }
+    &::after{
+      right: -200px;
+      bottom: -200px;
+      width: 473px;
+      height: 473px;
+    }
   }
   &__wrapper{
     @extend %df;
@@ -1170,6 +1198,28 @@
 
 .info{
   padding: 110px 0 130px;
+  position: relative;
+  overflow: hidden;
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+    background-image: url('../images/bg-circle-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &::before{
+    width: 613px;
+    height: 618px;
+    bottom: -300px;
+    left: -300px;
+  }
+  &::after{
+    right: -400px;
+    top: 0;
+    width: 1226px;
+    height: 1226px;
+  }
   &__inner{
     @extend %dfc;
     justify-content: center;
@@ -1184,6 +1234,48 @@
   }
   &__title{
     margin-bottom: 30px;
+  }
+}
+.results,
+.reviews{
+  position: relative;
+  overflow: hidden;
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+    background-image: url('../images/bg-circle-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+}
+.results{
+  &::before{
+    width: 613px;
+    height: 618px;
+    bottom: -300px;
+    left: -300px;
+  }
+  &::after{
+    right: 0;
+    top: 0;
+    width: 1226px;
+    height: 1226px;
+  }
+}
+.reviews{
+   &::after{
+    width: 1226px;
+    height: 1226px;
+    bottom: -300px;
+    left: -300px;
+  }
+  &::before{
+    right: 0;
+    top: 0;
+    width: 613px;
+    height: 618px;
   }
 }
 .composition,
