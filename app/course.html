@@ -35,9 +35,6 @@
           <li class="menu__item">
             <a class="menu__link" href="faq.html">FAQ</a>
           </li>
-          <li class="menu__item login enter">
-            <a class="menu__link" href="#">Вход</a>
-          </li>
           <li class="menu__item store">
             <a class="menu__link ">Магазин аккаунтов</a>
             <div class="store__wrapper">
@@ -74,15 +71,19 @@
               </div>
             </div>
           </li>
+          <a class="menu__header-link" href="/signin.html">
+            Вход в обучение
+          </a>
         </ul>
         <button class="menu__btn" type="button">
-          <img src="images/content/burger.png" alt="menu burger">
+          <img class="menu__burger" data-src="images/content/burger.png" alt="menu burger" src="images/placeholder.png">
+          <img class="menu__close" data-src="images/icons/close-icon.png" alt="menu burger" src="images/placeholder.png">
         </button>
       </nav>
       <a class="header__link enter" href="#">Вход в обучение</a>
     </div>
   </div>
-  <section class="top">
+  <section class="top top-course">
     <div class="main-container">
       <div class="top__inner top__inner-courses">
         <img class="top__image-courses" src="images/bg/thorus.png" alt="thorus image">
@@ -244,27 +245,23 @@
       </div>
       <div class="footer__social">
         <a href="#" target="_blank" class="footer__social-item">
-          <img class="footer__image" src="images/icons/facebook.png"
-            alt="facebook icon">
+          <img class="footer__image" src="images/icons/facebook.png" alt="facebook icon">
         </a>
         <a href="#" target="_blank" class="footer__social-item">
-          <img class="footer__image" src="images/icons/twitter.png"
-            alt="twitter icon">
+          <img class="footer__image" src="images/icons/twitter.png" alt="twitter icon">
         </a>
         <a href="https://t.me/Arbitrage_UP" target="_blank" class="footer__social-item">
-          <img class="footer__image" src="images/icons/telegram.png"
-            alt="telegram icon">
+          <img class="footer__image" src="images/icons/telegram.png" alt="telegram icon">
         </a>
         <a href="#" target="_blank" class="footer__social-item">
-          <img class="footer__image" src="images/icons/pinterest.png"
-            alt="pinterest icon">
+          <img class="footer__image" src="images/icons/pinterest.png" alt="pinterest icon">
         </a>
       </div>
     </div>
   </div>
 
 </footer>
-<div class="popup-log popup ">
+<div class="popup-log popup" id="popup-log">
   <form action="#" class="popup__form">
     <div class="popup__top">
       <div class="popup__top-title">
