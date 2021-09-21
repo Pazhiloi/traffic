@@ -1089,14 +1089,13 @@
     background-color: #fff;
     &::before,
     &::after{
-      z-index: 1;
+      z-index: 0;
     }
     &::before{
       width: 1226px;
       height: 1226px;
       top: -340px;
       left: -550px;
-      z-index: 0;
     }
     &::after{
       right: -200px;
@@ -1276,8 +1275,8 @@
    &::after{
     width: 1226px;
     height: 1226px;
-    bottom: -300px;
-    left: -300px;
+    bottom: -180px;
+    left: -500px;
   }
   &::before{
     right: -260px;
