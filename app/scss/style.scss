@@ -362,7 +362,7 @@
     &::after{
     content: '';
     position: absolute;
-    background-image: url('../images/bg-circle-1.png');
+    background-image: url('../images/bg/circle-1.png');
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;
@@ -469,8 +469,8 @@
     left: -300px;
   }
   &::after{
-    right: 0;
-    top: 0;
+    right: -600px;
+    top: -200px;
     width: 1226px;
     height: 1226px;
   }
@@ -1042,6 +1042,7 @@
 
 .start{
   position: relative;
+  z-index: 2;
   @extend %main-grad;
   &__inner{
     padding: 50px 0;
@@ -1086,11 +1087,16 @@
   &__content{
     padding: 120px 0;
     background-color: #fff;
+    &::before,
+    &::after{
+      z-index: 1;
+    }
     &::before{
       width: 1226px;
       height: 1226px;
-      top: 0;
-      left: -400px;
+      top: -340px;
+      left: -550px;
+      z-index: 0;
     }
     &::after{
       right: -200px;
@@ -1204,9 +1210,10 @@
   &::after{
     content: '';
     position: absolute;
-    background-image: url('../images/bg-circle-1.png');
+    background-image: url('../images/bg/circle-1.png');
     background-repeat: no-repeat;
     background-size: cover;
+
   }
   &::before{
     width: 613px;
@@ -1215,8 +1222,8 @@
     left: -300px;
   }
   &::after{
-    right: -400px;
-    top: 0;
+    right: -550px;
+    top: -300px;
     width: 1226px;
     height: 1226px;
   }
@@ -1244,9 +1251,10 @@
   &::after{
     content: '';
     position: absolute;
-    background-image: url('../images/bg-circle-1.png');
+    background-image: url('../images/bg/circle-1.png');
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -1;
   }
 
 }
@@ -1254,12 +1262,12 @@
   &::before{
     width: 613px;
     height: 618px;
-    bottom: -300px;
-    left: -300px;
+    bottom: -240px;
+    left: -240px;
   }
   &::after{
-    right: 0;
-    top: 0;
+    right: -530px;
+    top: -300px;
     width: 1226px;
     height: 1226px;
   }
@@ -1272,8 +1280,8 @@
     left: -300px;
   }
   &::before{
-    right: 0;
-    top: 0;
+    right: -260px;
+    top: 250px;
     width: 613px;
     height: 618px;
   }
